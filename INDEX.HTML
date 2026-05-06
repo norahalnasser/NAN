@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norah Alnasser | Digital Impact Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Noto+Kufi+Arabic:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root { --deep-blue: #020617; --tiffany: #0abab5; --accent-blue: #1e293b; }
+        body { font-family: 'Noto Kufi Arabic', sans-serif; background-color: var(--deep-blue); color: white; overflow-x: hidden; }
+        .eng { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* خلفية النجوم المتحركة */
+        .bg-animate {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+            z-index: -1;
+        }
+        .star { position: absolute; background: white; border-radius: 50%; opacity: 0.3; animation: twinkle var(--duration) infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
+
+        /* أيقونات تلمع وتتحرك */
+        .wave { display: inline-block; animation: wave-animation 2.5s infinite; transform-origin: 70% 70%; }
+        @keyframes wave-animation {
+            0%, 60%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(14deg); }
+            20% { transform: rotate(-8deg); }
+            40% { transform: rotate(-4deg); }
+            50% { transform: rotate(10deg); }
+        }
+        .shine { animation: shine-effect 2s infinite; display: inline-block; }
+        @keyframes shine-effect {
+            0% { filter: drop-shadow(0 0 0px #fff); }
+            50% { filter: drop-shadow(0 0 10px #0abab5); transform: scale(1.1); }
+            100% { filter: drop-shadow(0 0 0px #fff); }
+        }
+
+        /* بطاقات زجاجية */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 2rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.8); transform: translateY(-10px) scale(1.02);
+            border-color: var(--tiffany); box-shadow: 0 0 30px rgba(10, 186, 181, 0.2);
+        }
+
+        /* تأثير العنوان المتوهج */
+        .glow-text { text-shadow: 0 0 20px rgba(10, 186, 181, 0.5); }
+    </header>
+
+    <div class="bg-animate" id="starField"></div>
+
+    <nav class="p-8 flex justify-between items-center relative z-10">
+        <div class="eng font-black text-xl tracking-tighter text-teal-400">NORAH.A</div>
+        <div class="shine">✨</div>
+    </nav>
+
+    <header class="py-20 px-6 text-center relative z-10">
+        <div class="mb-6"><span class="wave text-5xl">👋</span></div>
+        <h1 class="text-6xl md:text-8xl font-black mb-6 glow-text">نورة الناصر</h1>
+        <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+            مُتواصلة استراتيجية، صانعة محتوى، وخريجة إعلام رقمي بمرتبة الشرف الثانية <span class="shine">🎓</span>
+        </p>
+        
+        <div class="mt-12 inline-block glass-card p-8">
+            <h3 class="eng text-2xl font-black italic text-teal-400 mb-2">Creating Impact with Every Beat <span class="shine">✨</span></h3>
+            <p class="eng text-xs tracking-widest text-slate-500 uppercase">Strategic Excellence & Digital Narrative</p>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pb-32 relative z-10">
+        
+        <!-- قسم الخبرة: هيئة السوق المالية -->
+        <section class="mb-16">
+            <div class="glass-card p-10 md:flex gap-10 items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-teal-500/20 text-teal-400 px-4 py-1 rounded-full text-xs font-bold eng">EXPERIENCE</span>
+                        <span class="shine text-xl">📊</span>
+                    </div>
+                    <h2 class="text-4xl font-black mb-6 leading-tight">هيئة السوق المالية [CMA]</h2>
+                    <p class="text-slate-400 leading-relaxed text-lg mb-8">
+                        خلال فترة التدريب التعاوني (2025)، ساهمت في صياغة المحتوى الرقمي للتقرير السنوي، ورصد وتحليل التفاعل الإعلامي باستخدام تقنيات <b>Meltwater</b> لضمان وصول الرسالة المؤسسية بأعلى كفاءة.
+                    </p>
+                    <div class="flex gap-4">
+                        <img src="cma-logo.jfif" class="w-12 h-12 rounded-xl border border-white/10" alt="CMA Logo">
+                        <img src="cma-1.jfif" class="w-12 h-12 rounded-xl border border-white/10" alt="CMA Office">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="cma-2.jfif" class="rounded-3xl shadow-2xl border border-white/10" alt="CMA Work">
+                </div>
+            </div>
+        </section>
+
+        <!-- شبكة الأعمال (Grid) -->
+        <div class="grid md:grid-cols-2 gap-10">
+            
+            <!-- قسم مقال يوم العلم -->
+            <div class="glass-card p-8">
+                <div class="shine mb-4 text-2xl">🇸🇦</div>
+                <h3 class="text-2xl font-black mb-4">رايةٌ لا تُنكس: فخر العلم</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    مقال صحفي تحليلي (11 مارس 2026) يستعرض الرمزية الوطنية لسارية الدرعية، ويعكس مهارات التحرير الاستقصائي والربط التاريخي بالهوية المعاصرة.
+                </p>
+                <div class="h-40 rounded-2xl overflow-hidden border border-white/5">
+                    <img src="design-council-initiative.jfif" class="w-100 object-cover" alt="Article Visual">
+                </div>
+            </div>
+
+            <!-- منتدى الإعلام السعودي -->
+            <div class="glass-card p-8">
+                <div class="shine mb-4 text-2xl">🎤</div>
+                <h3 class="text-2xl font-black mb-4">المنتدى السعودي للإعلام</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                    تمثيل مهني في كبرى المحافل الإعلامية بالرياض (فبراير 2026)، مع التركيز على بناء العلاقات المهنية ومواكبة أحدث تقنيات الصحافة الرقمية.
+                </p>
+                <div class="h-40 rounded-2xl overflow-hidden border border-white/5">
+                    <img src="media-forum-1.jfif" class="w-100 object-cover" alt="Media Forum">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- التخرج بمرتبة الشرف -->
+        <section class="mt-16 glass-card p-12 text-center overflow-hidden relative">
+            <div class="absolute top-0 right-0 p-10 opacity-10 shine text-8xl italic">PNU</div>
+            <h3 class="text-3xl font-black mb-4">Academic Excellence</h3>
+            <p class="text-xl text-teal-400 font-bold mb-8 italic">جامعة الأميرة نورة بنت عبدالرحمن | مرتبة الشرف الثانية</p>
+            <div class="max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl ring-4 ring-teal-500/30">
+                <img src="uni-group-graduation.jfif" alt="Graduation Day">
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-20 text-center relative z-10 border-t border-white/5">
+        <h2 class="text-2xl font-black mb-8 eng tracking-tighter glow-text">READY FOR THE NEXT IMPACT <span class="shine">🚀</span></h2>
+        <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" target="_blank" class="bg-teal-500 text-white px-16 py-5 rounded-full font-black text-lg hover:bg-teal-400 transition-all shadow-[0_0_20px_rgba(10,186,181,0.4)] inline-block eng uppercase tracking-widest">
+            LinkedIn Profile
+        </a>
+        <p class="mt-12 text-slate-600 eng text-[10px] tracking-widest uppercase">Designed with ✨ for Norah Alnasser © 2026</p>
+    </footer>
+
+    <script>
+        // إنشاء النجوم بشكل عشوائي
+        const starField = document.getElementById('starField');
+        const starCount = 100;
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+            starField.appendChild(star);
+        }
+    </script>
+</body>
+</html>
