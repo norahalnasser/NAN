@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="html-tag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,157 +8,92 @@
     <style>
         :root {
             --space-bg: #050b1a;
-            --star-color: #ffffff;
+            --gold: #d4af37;
+            --card-bg: rgba(255, 255, 255, 0.07);
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background: var(--space-bg);
-            color: white;
-            font-family: 'Tajawal', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
+            margin: 0; padding: 0; background: var(--space-bg); color: white;
+            font-family: 'Tajawal', sans-serif; overflow-x: hidden; line-height: 1.8;
         }
 
-        /* تأثير النجوم والشهب */
-        #stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-            overflow: hidden;
-        }
+        #stars-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); }
+        .star { position: absolute; background: white; border-radius: 50%; opacity: 0.5; animation: twinkle var(--duration) infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+        .shooting-star { position: absolute; width: 2px; height: 2px; background: linear-gradient(90deg, white, transparent); animation: shoot var(--speed) linear infinite; }
+        @keyframes shoot { 0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 1; } 100% { transform: translateX(-1000px) translateY(1000px) rotate(-45deg); opacity: 0; } }
 
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: twinkle var(--duration) infinite;
+        /* زر الترجمة */
+        .lang-switch {
+            position: fixed; top: 20px; left: 20px; z-index: 1000;
+            padding: 10px 20px; background: var(--gold); color: #050b1a;
+            border: none; border-radius: 50px; cursor: pointer; font-weight: bold;
+            box-shadow: 0 0 15px var(--gold); transition: 0.3s;
         }
+        .lang-switch:hover { transform: scale(1.1); background: white; }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+        .card { background: var(--card-bg); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; margin-bottom: 30px; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); border-color: var(--gold); }
 
-        /* الشهب */
-        .shooting-star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: linear-gradient(90deg, white, transparent);
-            animation: shoot var(--speed) linear infinite;
-        }
-
-        @keyframes shoot {
-            0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 1; }
-            100% { transform: translateX(-1000px) translateY(1000px) rotate(-45deg); opacity: 0; }
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-        }
-
-        h1, h2, h3 { color: #d4af37; }
-        .highlight { color: #82aaff; font-weight: bold; }
+        h1 { color: var(--gold); font-size: 2.5em; text-align: center; margin-bottom: 50px; }
+        h2 { color: var(--gold); border-bottom: 2px solid var(--gold); display: inline-block; margin-bottom: 20px; }
         
-        .section { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        
-        .link-btn {
-            display: inline-block;
-            padding: 8px 15px;
-            background: #d4af37;
-            color: #050b1a;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 5px;
-            transition: 0.3s;
-        }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; }
+        .gallery img:hover { transform: scale(1.05); border-color: var(--gold); }
 
-        .link-btn:hover { transform: scale(1.05); background: white; }
+        .link-btn { display: inline-block; padding: 10px 20px; background: transparent; color: var(--gold); border: 1px solid var(--gold); text-decoration: none; border-radius: 50px; margin-top: 10px; transition: 0.3s; }
+        .link-btn:hover { background: var(--gold); color: var(--space-bg); }
 
-        .image-placeholder {
-            font-size: 0.9em;
-            color: #aaa;
-            font-style: italic;
-            margin-top: 10px;
-            display: block;
-        }
+        [lang="en"] #html-tag { direction: ltr; }
     </style>
 </head>
 <body>
 
+    <button class="lang-switch" onclick="toggleLang()" id="langBtn">English</button>
     <div id="stars-container"></div>
 
     <div class="container">
-        <header style="text-align: center;">
-            <h1>نوره عبدالرحمن الناصر</h1>
-            <p style="font-size: 1.2em;">نصنع التأثير.. ونقود المحتوى</p>
+        <header>
+            <h1 id="mainTitle">نوره عبدالرحمن الناصر</h1>
+            <p id="subTitle" style="text-align: center; font-size: 1.3em; opacity: 0.9;">نصنع التأثير.. ونقود المحتوى</p>
         </header>
 
-        <div class="section">
-            <h3>✨ نبذة تعريفية</h3>
-            <p>حياكم الله .. معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.</p>
+        <div class="card">
+            <h2 id="aboutTitle">✨ نبذة تعريفية</h2>
+            <p id="aboutText">حياكم الله .. معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.</p>
         </div>
 
-        <div class="section">
-            <h3>🚀 الخبرة العملية والأدوات المهنية</h3>
-            <p class="highlight">إدارة الإعلام والتواصل الرقمي</p>
-            <ul>
-                <li><strong>تخطيط وصناعة المحتوى:</strong> ساهمت في إعداد وصياغة محتوى الحملات الإعلامية الرقمية (تغريدات ومنشورات)، بما في ذلك حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.</li>
-                <li><strong>التنفيذ والمتابعة:</strong> شاركت في تنفيذ الخطط الإعلامية وجدولة المحتوى لضمان وصول الرسائل الاتصالية للجمهور المستهدف بدقة.</li>
-                <li><strong>الرصد والتحليل الرقمي:</strong> رصد وتحليل أداء حسابات الهيئة على منصات التواصل الاجتماعي باستخدام أدوات احترافية مثل (Meltwater)، وإعداد تقارير أداء دورية لقياس التفاعل وأثر الحملات وتصميم بنرات الموقع الخارجي للهيئة.</li>
-            </ul>
-            <span class="image-placeholder">🖼️ الصور المرفقة: (cma-1)(cma-2)(cma-logo)(cma-3)</span>
+        <div class="card">
+            <h2 id="expTitle">🚀 الخبرة العملية والأدوات المهنية</h2>
+            <p id="expText">ساهمت في إعداد وصياغة محتوى الحملات الإعلامية الرقمية، بما في ذلك حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين. رصد وتحليل أداء الحسابات باستخدام (Meltwater).</p>
+            <div class="gallery">
+                <img src="cma-logo.jfif" alt="CMA Logo">
+                <img src="cma-1.jfif" alt="CMA 1">
+                <img src="cma-2.jfif" alt="CMA 2">
+                <img src="cma-3.jfif" alt="CMA 3">
+            </div>
         </div>
 
-        <div class="section">
-            <h3>🛠️ المشاريع والمهارات</h3>
-            <p><strong>تصميم الإعلانات والمنشورات الرقمية:</strong> <br> <span class="image-placeholder">(design-council-initiative)</span></p>
-            
-            <p><strong>التمثيل الإعلامي وإدارة الأجنحة التعريفية:</strong> <br> شاركت كممثلة رسمية لعدة أجنحة تعريفية في فعاليات جامعية، من أبرزها بوث المنتدى السعودي للإعلام. توليت التعريف بالمبادرة، شرح أهدافها، والتسويق المباشر، مما عزز مهاراتي في الإقناع والتواصل الجماهيري.</p>
-            <span class="image-placeholder">🖼️ الصور المرفقة: (council-meeting-session)(uni-group-graduation)(media-forum-2)</span>
-
-            <p><strong>القيادة الإعلامية وإدارة الفعاليات:</strong> <br> قدت فريق مشروع ملتقى النقد الإعلامي، صممت العرض التقديمي الرسمي والشعار، وقدمت الضيوف المميزين من بينهم إعلاميون بارزون مثل ياسر الجنيد وعبدالله الحسيني.</p>
-            <span class="image-placeholder">🖼️ الصور المرفقة: (criticism-event-2)(criticism-event)</span>
+        <div class="card">
+            <h2 id="projectsTitle">🎨 المشاريع والمهارات</h2>
+            <p id="projectsText">تصميم الإعلانات والمنشورات الرقمية، والتمثيل الإعلامي في فعاليات مثل المنتدى السعودي للإعلام.</p>
+            <div class="gallery">
+                <img src="design-council-initiative.jfif" alt="Design">
+                <img src="media-forum-2.jfif" alt="Media Forum">
+            </div>
         </div>
 
-        <div class="section">
-            <h3>📱 إدارة الحملات وإنتاج المحتوى</h3>
-            <p>حملة <strong>“صحتك بجوالك”</strong>: إعداد الفيديو الترويجي (صوت ومونتاج) وملف الخطة الكاملة.</p>
-            <a href="https://drive.google.com/drive/folders/1c_Qlr3EnmtASEf1hPSHo8NLYl6KyoH04" class="link-btn" target="_blank">🔗 رابط المجلد</a>
+        <div class="card">
+            <h2 id="contactTitle">🌠 تواصلوا معي</h2>
+            <p>📧 norahabdul15@gmail.com</p>
+            <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" class="link-btn">LinkedIn</a>
         </div>
-
-        <div class="section">
-            <h3>✍️ الأعمال المنشورة</h3>
-            <p>1- خبر صحفي: معرض الدون بالرياض <a href="https://shahdnow.sa/240268/" class="link-btn">رابط</a></p>
-            <p>2- حوار صحفي: مستقبل فنون العمارة <a href="https://shahdnow.sa/240411/" class="link-btn">رابط</a></p>
-            <p>3- مقال: “راية لا تُنكّس”.. سارية الدرعية <a href="https://shahdnow.sa/336421/" class="link-btn">رابط</a></p>
-        </div>
-
-        <footer style="text-align: center;">
-            <h3>🌠 تواصلوا معي</h3>
-            <p>📧 <a href="mailto:norahabdul15@gmail.com" style="color: white;">norahabdul15@gmail.com</a></p>
-            <p>🔗 <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" style="color: white;">LinkedIn</a></p>
-            <p><strong>أسعد بالتعاون والعمل معكم</strong></p>
-        </footer>
     </div>
 
     <script>
-        // كود توليد النجوم والشهب برمجياً
+        // كود النجوم
         const container = document.getElementById('stars-container');
         for (let i = 0; i < 150; i++) {
             const star = document.createElement('div');
@@ -170,6 +105,7 @@
             container.appendChild(star);
         }
 
+        // كود الشهب
         setInterval(() => {
             const shoot = document.createElement('div');
             shoot.className = 'shooting-star';
@@ -178,7 +114,44 @@
             shoot.style.setProperty('--speed', Math.random() * 2 + 1 + 's');
             container.appendChild(shoot);
             setTimeout(() => shoot.remove(), 3000);
-        }, 2000);
+        }, 2500);
+
+        // كود تحويل اللغة
+        const translations = {
+            ar: {
+                lang: "English", title: "نوره عبدالرحمن الناصر", sub: "نصنع التأثير.. ونقود المحتوى",
+                aboutT: "✨ نبذة تعريفية", aboutP: "خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات في التخطيط الإعلامي وصناعة المحتوى.",
+                expT: "🚀 الخبرة العملية", expP: "المساهمة في حملات الهيئة 2024 وبرامج تأهيل الخريجين. رصد وتحليل الأداء الرقمي.",
+                projT: "🎨 المشاريع والمهارات", projP: "تصميم المنشورات الرقمية والتمثيل الإعلامي في المنتدى السعودي للإعلام.",
+                contT: "🌠 تواصلوا معي"
+            },
+            en: {
+                lang: "العربية", title: "Norah Abdulrahman Alnasser", sub: "Creating Impact.. Leading Content",
+                aboutT: "✨ About Me", aboutP: "Graduate in Journalism and Digital Media from Princess Nourah University. Skilled in media planning and digital content creation.",
+                expT: "🚀 Professional Experience", expP: "Contributed to CMA 2024 annual report campaigns and graduate programs. Digital performance monitoring using Meltwater.",
+                projT: "🎨 Projects & Skills", projP: "Digital design and media representation at the Saudi Media Forum.",
+                contT: "🌠 Contact Me"
+            }
+        };
+
+        let currentLang = 'ar';
+        function toggleLang() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.getElementById('html-tag').dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById('html-tag').lang = currentLang;
+            
+            const t = translations[currentLang];
+            document.getElementById('langBtn').innerText = t.lang;
+            document.getElementById('mainTitle').innerText = t.title;
+            document.getElementById('subTitle').innerText = t.sub;
+            document.getElementById('aboutTitle').innerText = t.aboutT;
+            document.getElementById('aboutText').innerText = t.aboutP;
+            document.getElementById('expTitle').innerText = t.expT;
+            document.getElementById('expText').innerText = t.expP;
+            document.getElementById('projectsTitle').innerText = t.projT;
+            document.getElementById('projectsText').innerText = t.projP;
+            document.getElementById('contactTitle').innerText = t.contT;
+        }
     </script>
 </body>
 </html>
