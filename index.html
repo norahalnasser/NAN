@@ -1,89 +1,184 @@
-# 🌌 نوره عبدالرحمن الناصر | Norah Alnasser
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نوره عبدالرحمن الناصر | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --space-bg: #050b1a;
+            --star-color: #ffffff;
+        }
 
-<div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=soft&color=0B0B2E&height=200&section=header&text=نصنع%20التأثير..%20ونقود%20المحتوى&fontSize=40&animation=twinkling&fontColor=FFFFFF" />
-</div>
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--space-bg);
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Journalism%20%26%20Digital%20Media-PNU-blueviolet?style=for-the-badge&logo=googlescholar&logoColor=white" />
-  <img src="https://img.shields.io/badge/Content%20Creator-Digital%20Strategy-gold?style=for-the-badge&logo=Starship&logoColor=black" />
-</p>
+        /* تأثير النجوم والشهب */
+        #stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            overflow: hidden;
+        }
 
----
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: twinkle var(--duration) infinite;
+        }
 
-### ✨ نبذة تعريفية
-**حياكم الله ..**
-معكم **نورهـ**، خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن.
-أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
 
-> **"نصنع التأثير.. ونقود المحتوى"**
+        /* الشهب */
+        .shooting-star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(90deg, white, transparent);
+            animation: shoot var(--speed) linear infinite;
+        }
 
----
+        @keyframes shoot {
+            0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 1; }
+            100% { transform: translateX(-1000px) translateY(1000px) rotate(-45deg); opacity: 0; }
+        }
 
-### 🚀 الخبرة العملية والأدوات المهنية
-#### 🔹 إدارة الإعلام والتواصل الرقمي
-*   **تخطيط وصناعة المحتوى:** ساهمت في إعداد وصياغة محتوى الحملات الإعلامية الرقمية (تغريدات ومنشورات)، بما في ذلك حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.
-*   **التنفيذ والمتابعة:** شاركت في تنفيذ الخطط الإعلامية وجدولة المحتوى لضمان وصول الرسائل الاتصالية للجمهور المستهدف بدقة.
-*   **الرصد والتحليل الرقمي:** رصد وتحليل أداء حسابات الهيئة على منصات التواصل الاجتماعي باستخدام أدوات احترافية مثل (**Meltwater**)، وإعداد تقارير أداء دورية لقياس التفاعل وأثر الحملات وتصميم بنرات الموقع الخارجي للهيئة.
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
 
-> 📷 **الصور المرفقة لهذا القسم:** `(cma-1)` `(cma-2)` `(cma-logo)` `(cma-3)`
+        h1, h2, h3 { color: #d4af37; }
+        .highlight { color: #82aaff; font-weight: bold; }
+        
+        .section { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        
+        .link-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #d4af37;
+            color: #050b1a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 5px;
+            transition: 0.3s;
+        }
 
----
+        .link-btn:hover { transform: scale(1.05); background: white; }
 
-### 🛠️ المشاريع والمهارات
+        .image-placeholder {
+            font-size: 0.9em;
+            color: #aaa;
+            font-style: italic;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
 
-#### 🎨 تصميم الإعلانات والمنشورات الرقمية
-*   تصميم الهويات البصرية والمنشورات الترويجية الرقمية.
-> 📷 **الصور المرفقة:** `(design-council-initiative)`
+    <div id="stars-container"></div>
 
-#### 🎤 التمثيل الإعلامي وإدارة الأجنحة التعريفية في الفعاليات
-شاركت كممثلة رسمية لعدة أجنحة تعريفية في فعاليات جامعية، من أبرزها **بوث المنتدى السعودي للإعلام**، حيث توليت:
-*   التعريف بالمبادرة وشرح أهدافها للطالبات والزوار.
-*   التسويق المباشر للمبادرة.
-*   المساهمة في تنظيم وإدارة عدد من الأجنحة، والتفاعل مع الجمهور، والإجابة على استفساراتهم.
-*   *النتيجة:* تعزيز مهارات الإقناع، التواصل الجماهيري، وإدارة الحضور الميداني.
-> 📷 **الصور المرفقة:** `(council-meeting-session)` `(uni-group-graduation)` `(media-forum-2)`
+    <div class="container">
+        <header style="text-align: center;">
+            <h1>نوره عبدالرحمن الناصر</h1>
+            <p style="font-size: 1.2em;">نصنع التأثير.. ونقود المحتوى</p>
+        </header>
 
-#### 👥 القيادة الإعلامية وإدارة الفعاليات
-*   **قيادة الفريق:** قدت فريق مشروع ملتقى النقد الإعلامي، ووزعت المهام على أعضاء فريقي لضمان تنفيذ كل جزء بكفاءة.
-*   **التصميم والهوية:** صممت العرض التقديمي الرسمي للملتقى، والشعار الرسمي، وكتيب الإرشادات لتسهيل متابعة الحضور للفعالية.
-*   **التقديم الرسمي:** قدمت الضيوف المميزين والترحيب بهم أمام الجمهور، من بينهم إعلاميون بارزون مثل **ياسر الجنيد** و**عبدالله الحسيني**.
-*   *النتيجة:* تطوير مهارات القيادة، التنظيم، التصميم، والتواصل الجماهيري بشكل احترافي.
-> 📷 **الصور المرفقة:** `(criticism-event-2)` `(criticism-event)`
+        <div class="section">
+            <h3>✨ نبذة تعريفية</h3>
+            <p>حياكم الله .. معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.</p>
+        </div>
 
-#### 📱 إدارة الحملات الإعلامية الرقمية وإنتاج المحتوى
-شاركت في حملة **“صحتك بجوالك”** بالتعاون مع الجامعة، حيث توليت:
-*   إعداد الفيديو الترويجي (تسجيل الصوت والمونتاج).
-*   إعداد ملف خطة الحملة الكاملة (خطة النشر، التايم لاين، والملخص التنفيذي).
-*   *النتيجة:* تعزيز القدرات في إنتاج المحتوى، التخطيط الاستراتيجي، وإدارة المشاريع الإعلامية.
-*   🔗 **رابط المشروع:** [اضغط هنا للوصول للمجلد](https://drive.google.com/drive/folders/1c_Qlr3EnmtASEf1hPSHo8NLYl6KyoH04)
+        <div class="section">
+            <h3>🚀 الخبرة العملية والأدوات المهنية</h3>
+            <p class="highlight">إدارة الإعلام والتواصل الرقمي</p>
+            <ul>
+                <li><strong>تخطيط وصناعة المحتوى:</strong> ساهمت في إعداد وصياغة محتوى الحملات الإعلامية الرقمية (تغريدات ومنشورات)، بما في ذلك حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.</li>
+                <li><strong>التنفيذ والمتابعة:</strong> شاركت في تنفيذ الخطط الإعلامية وجدولة المحتوى لضمان وصول الرسائل الاتصالية للجمهور المستهدف بدقة.</li>
+                <li><strong>الرصد والتحليل الرقمي:</strong> رصد وتحليل أداء حسابات الهيئة على منصات التواصل الاجتماعي باستخدام أدوات احترافية مثل (Meltwater)، وإعداد تقارير أداء دورية لقياس التفاعل وأثر الحملات وتصميم بنرات الموقع الخارجي للهيئة.</li>
+            </ul>
+            <span class="image-placeholder">🖼️ الصور المرفقة: (cma-1)(cma-2)(cma-logo)(cma-3)</span>
+        </div>
 
----
+        <div class="section">
+            <h3>🛠️ المشاريع والمهارات</h3>
+            <p><strong>تصميم الإعلانات والمنشورات الرقمية:</strong> <br> <span class="image-placeholder">(design-council-initiative)</span></p>
+            
+            <p><strong>التمثيل الإعلامي وإدارة الأجنحة التعريفية:</strong> <br> شاركت كممثلة رسمية لعدة أجنحة تعريفية في فعاليات جامعية، من أبرزها بوث المنتدى السعودي للإعلام. توليت التعريف بالمبادرة، شرح أهدافها، والتسويق المباشر، مما عزز مهاراتي في الإقناع والتواصل الجماهيري.</p>
+            <span class="image-placeholder">🖼️ الصور المرفقة: (council-meeting-session)(uni-group-graduation)(media-forum-2)</span>
 
-### ✍️ الأعمال المنشورة
+            <p><strong>القيادة الإعلامية وإدارة الفعاليات:</strong> <br> قدت فريق مشروع ملتقى النقد الإعلامي، صممت العرض التقديمي الرسمي والشعار، وقدمت الضيوف المميزين من بينهم إعلاميون بارزون مثل ياسر الجنيد وعبدالله الحسيني.</p>
+            <span class="image-placeholder">🖼️ الصور المرفقة: (criticism-event-2)(criticism-event)</span>
+        </div>
 
-| # | عنوان العمل | الرابط |
-| :--- | :--- | :--- |
-| 1 | **خبر صحفي:** من ماديرا (في البرتغال) إلى المملكة العربية السعودية، افتتاح معرض الدون بالرياض | [🔗 قراءة الخبر](https://shahdnow.sa/240268/) |
-| 2 | **حوار صحفي:** لمحة عن مستقبل فنون العمارة بالمملكة | [🔗 قراءة الحوار](https://shahdnow.sa/240411/) |
-| 3 | **مقال:** “راية لا تُنكّس”.. سارية الدرعية التاريخية تعانق السماء بالمنطقة الشمالية | [🔗 قراءة المقال](https://shahdnow.sa/336421/) |
+        <div class="section">
+            <h3>📱 إدارة الحملات وإنتاج المحتوى</h3>
+            <p>حملة <strong>“صحتك بجوالك”</strong>: إعداد الفيديو الترويجي (صوت ومونتاج) وملف الخطة الكاملة.</p>
+            <a href="https://drive.google.com/drive/folders/1c_Qlr3EnmtASEf1hPSHo8NLYl6KyoH04" class="link-btn" target="_blank">🔗 رابط المجلد</a>
+        </div>
 
----
+        <div class="section">
+            <h3>✍️ الأعمال المنشورة</h3>
+            <p>1- خبر صحفي: معرض الدون بالرياض <a href="https://shahdnow.sa/240268/" class="link-btn">رابط</a></p>
+            <p>2- حوار صحفي: مستقبل فنون العمارة <a href="https://shahdnow.sa/240411/" class="link-btn">رابط</a></p>
+            <p>3- مقال: “راية لا تُنكّس”.. سارية الدرعية <a href="https://shahdnow.sa/336421/" class="link-btn">رابط</a></p>
+        </div>
 
-### 🌠 ماذا أيضاً؟
-**أسعد بالتعاون والعمل معكم** 🤝
+        <footer style="text-align: center;">
+            <h3>🌠 تواصلوا معي</h3>
+            <p>📧 <a href="mailto:norahabdul15@gmail.com" style="color: white;">norahabdul15@gmail.com</a></p>
+            <p>🔗 <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" style="color: white;">LinkedIn</a></p>
+            <p><strong>أسعد بالتعاون والعمل معكم</strong></p>
+        </footer>
+    </div>
 
-### 📬 قنوات التواصل
-<div align="right">
+    <script>
+        // كود توليد النجوم والشهب برمجياً
+        const container = document.getElementById('stars-container');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.width = star.style.height = Math.random() * 3 + 'px';
+            star.style.setProperty('--duration', Math.random() * 3 + 2 + 's');
+            container.appendChild(star);
+        }
 
-📧 **الإيميل:** [norahabdul15@gmail.com](mailto:norahabdul15@gmail.com)  
-🔗 **لينكدان:** [linkedin.com/in/norah-alnasser](https://www.linkedin.com/in/norah-alnasser-b2026919b)
-
-</div>
-
----
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/Trilokia/Trilokia/master/assets/animated_stars.gif" width="100%" />
-  <p><i>"The stars align for those who create their own light"</i></p>
-</div>
+        setInterval(() => {
+            const shoot = document.createElement('div');
+            shoot.className = 'shooting-star';
+            shoot.style.left = Math.random() * 100 + '%';
+            shoot.style.top = Math.random() * 50 + '%';
+            shoot.style.setProperty('--speed', Math.random() * 2 + 1 + 's');
+            container.appendChild(shoot);
+            setTimeout(() => shoot.remove(), 3000);
+        }, 2000);
+    </script>
+</body>
+</html>
