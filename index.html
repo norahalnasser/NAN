@@ -17,21 +17,33 @@
             font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth;
         }
 
-        /* تأثير النجوم والشهب */
+        /* النجوم والشهب */
         #stars-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); }
         .star { position: absolute; background: white; border-radius: 50%; opacity: 0.5; animation: twinkle var(--duration) infinite; }
         @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
         .shooting-star { position: absolute; width: 2px; height: 2px; background: linear-gradient(90deg, white, transparent); animation: shoot var(--speed) linear infinite; }
         @keyframes shoot { 0% { transform: translateX(0) translateY(0) rotate(-45deg); opacity: 1; } 100% { transform: translateX(-1000px) translateY(1000px) rotate(-45deg); opacity: 0; } }
 
-        /* صفحة الترحيب */
+        /* صفحة الترحيب (The Hook) */
         #welcome-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--space-bg); display: flex; flex-direction: column;
             justify-content: center; align-items: center; z-index: 2000; transition: 1s;
+            text-align: center; padding: 20px;
         }
+        .hook-text {
+            font-size: 1.8em; color: white; margin-bottom: 10px; opacity: 0;
+            animation: fadeIn 1.5s forwards 0.5s;
+        }
+        .hook-subtext {
+            font-size: 1.2em; color: var(--gold); margin-bottom: 30px; opacity: 0;
+            animation: fadeIn 1.5s forwards 1s;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
         .welcome-btn {
-            padding: 15px 40px; font-size: 1.5em; background: transparent;
+            padding: 15px 40px; font-size: 1.2em; background: transparent;
             color: var(--gold); border: 2px solid var(--gold); border-radius: 50px;
             cursor: pointer; transition: 0.3s; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
@@ -47,21 +59,25 @@
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; display: none; }
         .card { background: var(--card-bg); backdrop-filter: blur(10px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 30px; margin-bottom: 40px; }
         
-        h1 { color: var(--gold); text-align: center; font-size: 2.8em; margin-bottom: 10px; }
+        h1 { color: var(--gold); text-align: center; font-size: 2.5em; margin-bottom: 10px; }
         h2 { color: var(--gold); border-right: 4px solid var(--gold); padding-right: 15px; margin-bottom: 25px; }
         
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
         .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); }
 
-        .link-btn { display: inline-block; padding: 10px 20px; color: var(--gold); border: 1px solid var(--gold); text-decoration: none; border-radius: 5px; margin: 5px 0; transition: 0.3s; }
-        .link-btn:hover { background: var(--gold); color: white; }
+        .link-btn { display: inline-block; padding: 10px 20px; color: var(--gold); border: 1px solid var(--gold); text-decoration: none; border-radius: 50px; margin: 5px 0; transition: 0.3s; font-size: 0.9em; }
+        .link-btn:hover { background: var(--gold); color: var(--space-bg); }
+        
+        .main-link { background: var(--gold); color: var(--space-bg) !important; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div id="welcome-screen">
-        <h1 style="margin-bottom: 30px;">نوره عبدالرحمن الناصر</h1>
-        <button class="welcome-btn" onclick="enterSite()">استكشف الملف المهني</button>
+        <h1 style="color: var(--gold); font-size: 3em;">نوره عبدالرحمن الناصر</h1>
+        <p class="hook-text">بين طيات المحتوى.. نصنع قصصاً تترك أثراً لا ينسى.</p>
+        <p class="hook-subtext">خريجة إعلام رقمي شغوفة بصياغة المستقبل البصري والتحريري.</p>
+        <button class="welcome-btn" onclick="enterSite()">استكشف عالمي المهني</button>
     </div>
 
     <button class="lang-switch" onclick="toggleLang()" id="langBtn">English</button>
@@ -69,22 +85,22 @@
 
     <div class="container" id="mainContent">
         <header>
-            <h1 id="mainTitle">نوره عبدالرحمن الناصر</h1>
-            <p id="subTitle" style="text-align: center; font-size: 1.4em; color: var(--gold);">نصنع التأثير.. ونقود المحتوى</p>
+            <h1>نوره عبدالرحمن الناصر</h1>
+            <p style="text-align: center; font-size: 1.4em; color: var(--gold);">نصنع التأثير.. ونقود المحتوى</p>
         </header>
 
         <div class="card">
-            <h2 id="introH">حياكم الله ..</h2>
-            <p id="introP">معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.</p>
+            <h2>حياكم الله ..</h2>
+            <p>معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.</p>
         </div>
 
         <div class="card">
-            <h2 id="expH">الخبرة العملية والأدوات المهنية</h2>
+            <h2>الخبرة العملية والأدوات المهنية</h2>
             <h3 style="color: #82aaff;">إدارة الإعلام والتواصل الرقمي</h3>
-            <ul id="expList">
-                <li><strong>تخطيط وصناعة المحتوى:</strong> ساهمت في إعداد وصياغة محتوى الحملات الإعلامية الرقمية (تغريدات ومنشورات)، بما في ذلك حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.</li>
-                <li><strong>التنفيذ والمتابعة:</strong> شاركت في تنفيذ الخطط الإعلامية وجدولة المحتوى لضمان وصول الرسائل الاتصالية للجمهور المستهدف بدقة.</li>
-                <li><strong>الرصد والتحليل الرقمي:</strong> رصد وتحليل أداء حسابات الهيئة على منصات التواصل الاجتماعي باستخدام أدوات احترافية مثل (Meltwater)، وإعداد تقارير أداء دورية لقياس التفاعل وأثر الحملات وتصميم بنرات الموقع الخارجي للهيئه.</li>
+            <ul>
+                <li><strong>تخطيط وصناعة المحتوى:</strong> ساهمت في إعداد وصياغة محتوى الحملات الإعلامية الرقمية، بما في ذلك حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.</li>
+                <li><strong>التنفيذ والمتابعة:</strong> شاركت في تنفيذ الخطط الإعلامية وجدولة المحتوى لضمان وصول الرسائل بدقة للجمهور المستهدف.</li>
+                <li><strong>الرصد والتحليل الرقمي:</strong> تحليل أداء حسابات الهيئة باستخدام أدوات مثل (Meltwater)، وإعداد تقارير دورية وتصميم بنرات الموقع الخارجي.</li>
             </ul>
             <div class="gallery">
                 <img src="cma-logo.jfif"> <img src="cma-1.jfif"> <img src="cma-2.jfif"> <img src="cma-3.jfif">
@@ -92,44 +108,45 @@
         </div>
 
         <div class="card">
-            <h2 id="projH">المشاريع والمهارات</h2>
+            <h2>المشاريع والمهارات</h2>
             <p><strong>تصميم الإعلانات والمنشورات الرقمية:</strong></p>
-            <img src="design-council-initiative.jfif" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
+            <img src="design-council-initiative.jfif" style="width: 100%; border-radius: 12px; margin-bottom: 15px;">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" class="link-btn main-link" target="_blank">للمزيد من المنشورات والتصاميم استكشف هنا في لينكدان 🔗</a>
+            </div>
             
-            <h3 id="repTitle">التمثيل الإعلامي وإدارة الأجنحة التعريفية في الفعاليات</h3>
-            <p id="repText">شاركت كممثلة رسمية لعدة أجنحة تعريفية في فعاليات جامعية، من أبرزها بوث المنتدى السعودي للإعلام، حيث توليت التعريف بالمبادرة، شرح أهدافها للطالبات والزوار، والتسويق لها بشكل مباشر. كما ساهمت في تنظيم وإدارة عدد من الأجنحة، والتفاعل مع الجمهور، والإجابة على استفساراتهم، مما عزز مهاراتي في الإقناع، التواصل الجماهيري، وإدارة الحضور الميداني.</p>
+            <h3>التمثيل الإعلامي وإدارة الأجنحة التعريفية</h3>
+            <p>ممثلة رسمية في المنتدى السعودي للإعلام؛ التعريف بالمبادرة، شرح الأهداف للزوار، والتسويق المباشر. تعزيز مهارات الإقناع والتواصل الجماهيري وإدارة الحضور الميداني.</p>
             <div class="gallery">
                 <img src="council-meeting-session.jfif"> <img src="uni-group-graduation.jfif"> <img src="media-forum-2.jfif">
             </div>
         </div>
 
         <div class="card">
-            <h2 id="leadH">القيادة الإعلامية وإدارة الفعاليات</h2>
-            <p id="leadText">قدت فريق مشروع ملتقى النقد الإعلامي، ووزعت المهام على أعضاء فريقي لضمان تنفيذ كل جزء بكفاءة. صممت العرض التقديمي الرسمي للملتقى، والشعار الرسمي، وكتيب الإرشادات لتسهيل متابعة الحضور للفعالية. قدمت الضيوف المميزين والترحيب بهم أمام الجمهور، من بينهم إعلاميون بارزون مثل ياسر الجنيد وعبدالله الحسيني. من خلال هذه التجربة، طورت مهاراتي في القيادة، التنظيم، التصميم، والتواصل الجماهيري، وشعرت بفخر كبير بمساهمتي في نجاح الفعالية بشكل احترافي.</p>
+            <h2>القيادة الإعلامية وإدارة الفعاليات</h2>
+            <p>قيادة فريق ملتقى النقد الإعلامي؛ تصميم العرض التقديمي والشعار الرسمي، وتقديم ضيوف بارزين مثل ياسر الجنيد وعبدالله الحسيني. فخر بالنجاح الاحترافي في التنظيم والتواصل.</p>
             <div class="gallery">
                 <img src="criticism-event.jfif"> <img src="criticism-event-2.jfif">
             </div>
         </div>
 
         <div class="card">
-            <h2 id="campH">إدارة الحملات الإعلامية الرقمية وإنتاج المحتوى</h2>
-            <p id="campText">شاركت في حملة “صحتك بجوالك” بالتعاون مع الجامعة، حيث توليت إعداد الفيديو الترويجي بما في ذلك تسجيل الصوت والمونتاج. كما قمت بإعداد ملف خطة الحملة الكاملة، والذي تضمن خطة النشر، التايم لاين، والملخص التنفيذي. هذه التجربة عززت قدراتي في إنتاج المحتوى، التخطيط الاستراتيجي للحملات، وإدارة المشاريع الإعلامية الرقمية، وساهمت في نجاح الحملة بشكل احترافي.</p>
-            <a href="https://drive.google.com/drive/folders/1c_Qlr3EnmtASEf1hPSHo8NLYl6KyoH04" class="link-btn" target="_blank">🔗 رابط مجلد الحملة</a>
+            <h2>إدارة الحملات وإنتاج المحتوى</h2>
+            <p>حملة “صحتك بجوالك” بالتعاون مع الجامعة؛ إنتاج الفيديو الترويجي (صوت ومونتاج) وإعداد خطة النشر والملخص التنفيذي.</p>
+            <a href="https://drive.google.com/drive/folders/1c_Qlr3EnmtASEf1hPSHo8NLYl6KyoH04" class="link-btn" target="_blank">🔗 رابط مجلد الحملة الكامل</a>
         </div>
 
         <div class="card">
-            <h2 id="pubH">الأعمال المنشورة</h2>
-            <p>1- خبر صحفي: من ماديرا إلى المملكة، افتتاح معرض الدون بالرياض <a href="https://shahdnow.sa/240268/" class="link-btn" target="_blank">الرابط</a></p>
-            <p>2- حوار صحفي: لمحة عن مستقبل فنون العمارة بالمملكة <a href="https://shahdnow.sa/240411/" class="link-btn" target="_blank">الرابط</a></p>
-            <p>3- مقال: “راية لا تُنكّس”.. سارية الدرعية التاريخية <a href="https://shahdnow.sa/336421/" class="link-btn" target="_blank">الرابط</a></p>
+            <h2>الأعمال المنشورة</h2>
+            <p>• خبر صحفي: معرض الدون بالرياض <a href="https://shahdnow.sa/240268/" class="link-btn" target="_blank">الرابط</a></p>
+            <p>• حوار صحفي: مستقبل فنون العمارة بالمملكة <a href="https://shahdnow.sa/240411/" class="link-btn" target="_blank">الرابط</a></p>
+            <p>• مقال: سارية الدرعية التاريخية “راية لا تُنكّس” <a href="https://shahdnow.sa/336421/" class="link-btn" target="_blank">الرابط</a></p>
         </div>
 
         <footer class="card" style="text-align: center;">
-            <h2 id="moreH" style="border: none;">ماذا أيضاً</h2>
-            <p id="moreP">أسعد بالتعاون والعمل معكم</p>
-            <h3 id="contactH">قنوات التواصل</h3>
+            <h2 style="border: none; text-align: center;">أسعد بالتعاون والعمل معكم</h2>
             <p>📧 <a href="mailto:norahabdul15@gmail.com" style="color: white;">norahabdul15@gmail.com</a></p>
-            <p>🔗 <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" style="color: white;">LinkedIn Profile</a></p>
+            <p>🔗 <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" style="color: white;">LinkedIn</a></p>
         </footer>
     </div>
 
@@ -139,10 +156,10 @@
             setTimeout(() => {
                 document.getElementById('welcome-screen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
+                window.scrollTo(0, 0);
             }, 1000);
         }
 
-        // كود النجوم والشهب
         const container = document.getElementById('stars-container');
         for (let i = 0; i < 150; i++) {
             const star = document.createElement('div');
@@ -163,26 +180,12 @@
             setTimeout(() => shoot.remove(), 3000);
         }, 2500);
 
-        // الترجمة
-        const translations = {
-            ar: {
-                lang: "English", mainT: "نوره عبدالرحمن الناصر", subT: "نصنع التأثير.. ونقود المحتوى", introH: "حياكم الله ..",
-                introP: "معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن...",
-                expH: "الخبرة العملية", leadH: "القيادة الإعلامية", pubH: "الأعمال المنشورة"
-            },
-            en: {
-                lang: "العربية", mainT: "Norah Alnasser", subT: "Creating Impact.. Leading Content", introH: "Welcome",
-                introP: "I am Norah, a Digital Media & Journalism graduate from PNU...",
-                expH: "Professional Experience", leadH: "Media Leadership", pubH: "Published Works"
-            }
-        };
-
         function toggleLang() {
+            // (كود التبديل يمكن توسعه ليشمل ترجمة كاملة للعناصر)
             const btn = document.getElementById('langBtn');
             const isAr = btn.innerText === "English";
             document.getElementById('html-tag').dir = isAr ? "ltr" : "rtl";
             btn.innerText = isAr ? "العربية" : "English";
-            // (يمكن إضافة باقي الترجمات هنا بنفس النمط)
         }
     </script>
 </body>
