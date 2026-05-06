@@ -2,100 +2,42 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norah Alnasser | Portfolio</title>
-    <!-- استدعاء المكتبة بشكل مباشر ومضمون -->
+    <title>نورة الناصر | ملف الإنجاز الرقمي</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;900&display=swap" rel="stylesheet">
     <style>
-        /* خلفية كحلي ملكي متدرجة بدلاً من الأسود */
-        body { 
-            margin: 0;
-            font-family: 'Noto Kufi Arabic', sans-serif; 
-            background: linear-gradient(135deg, #051937, #004d7a, #008793, #00bf72);
-            background-attachment: fixed;
-            color: white; 
-            overflow-x: hidden;
-        }
-        .eng { font-family: 'Plus Jakarta Sans', sans-serif; }
-
-        /* تأثير النجوم اللامعة جداً */
-        #starField { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .star { position: absolute; background: white; border-radius: 50%; box-shadow: 0 0 10px white; animation: blink var(--duration) infinite; }
-        @keyframes blink { 0%, 100% { opacity: 0.2; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.3); } }
-
-        /* أيقونة اليد والنجوم */
-        .wave { display: inline-block; animation: wave-motion 2.5s infinite; transform-origin: 70% 70%; }
-        @keyframes wave-motion { 0%, 100% { transform: rotate(0deg); } 20% { transform: rotate(15deg); } 40% { transform: rotate(-10deg); } 60% { transform: rotate(5deg); } }
-        
-        .shine-icon { animation: glow 2s infinite; display: inline-block; }
-        @keyframes glow { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(2) drop-shadow(0 0 15px #0abab5); } }
-
-        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 2.5rem; }
+        body { font-family: 'Noto Kufi Arabic', sans-serif; background-color: #f0fdfa; color: #042f2e; }
+        .hero { background: linear-gradient(135deg, #0abab5 0%, #042f2e 100%); color: white; }
+        .card { background: white; border-radius: 1.5rem; padding: 2rem; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body>
-    <div id="starField"></div>
+    <header class="hero py-20 text-center px-6">
+        <h1 class="text-5xl font-black mb-4">نورة الناصر</h1>
+        <p class="text-xl opacity-90">خريجة إعلام وصحافة رقمية بمرتبة الشرف الثانية</p>
+    </header>
 
-    <div class="relative z-10">
-        <header class="py-24 px-6 text-center">
-            <div class="mb-6"><span class="wave text-6xl">👋</span></div>
-            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tight" style="text-shadow: 0 10px 30px rgba(0,0,0,0.3);">نورة الناصر</h1>
-            <p class="text-2xl text-teal-300 font-light max-w-3xl mx-auto mb-10 leading-relaxed">
-                خريجة إعلام وصحافة بمرتبة الشرف الثانية <span class="shine-icon text-3xl">✨</span>
-            </p>
-            <div class="glass inline-block px-10 py-6">
-                <span class="eng text-xl font-bold italic tracking-wider">Creating Impact with Every Beat</span>
+    <main class="max-w-5xl mx-auto py-12 px-6 grid gap-8">
+        <!-- قسم هيئة السوق المالية -->
+        <section class="card border-r-8 border-teal-500">
+            <h2 class="text-2xl font-black mb-4">التدريب التعاوني - هيئة السوق المالية (CMA)</h2>
+            <p class="mb-6 text-gray-700">ساهمت في إدارة الإعلام والتواصل الرقمي، ورصد الأداء الإعلامي لعام 2024 باستخدام أدوات تحليل متقدمة.</p>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="cma-1.jfif" class="rounded-lg shadow" alt="CMA Work">
+                <img src="cma-logo.jfif" class="rounded-lg shadow" alt="CMA Logo">
             </div>
-        </header>
+        </section>
 
-        <main class="max-w-5xl mx-auto px-6 space-y-12">
-            <!-- بطاقة هيئة السوق المالية -->
-            <div class="glass p-10 hover:bg-white/20 transition-all duration-500">
-                <div class="flex items-center gap-4 mb-8">
-                    <span class="bg-teal-400 text-teal-950 px-4 py-1 rounded-full text-xs font-black eng">CMA EXPERIENCE</span>
-                    <span class="shine-icon">💼</span>
-                </div>
-                <h2 class="text-4xl font-black mb-6">هيئة السوق المالية</h2>
-                <p class="text-lg text-slate-100 leading-relaxed mb-8">
-                    ساهمتُ في إعداد محتوى التقرير السنوي 2024 لتعزيز الشفافية، مع إتقان أدوات الرصد الإعلامي الرقمي <b>Meltwater</b> لتحليل الرأي العام بدقة.
-                </p>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="cma-logo.jfif" class="rounded-2xl border-2 border-teal-400/30 w-full h-32 object-cover" onerror="this.style.display='none'">
-                    <img src="cma-1.jfif" class="rounded-2xl border-2 border-teal-400/30 w-full h-32 object-cover" onerror="this.style.display='none'">
-                    <img src="cma-2.jfif" class="rounded-2xl border-2 border-teal-400/30 w-full h-32 object-cover" onerror="this.style.display='none'">
-                </div>
-            </div>
+        <!-- قسم المقالات -->
+        <section class="card border-r-8 border-teal-500">
+            <h2 class="text-2xl font-black mb-4">مقالات صحفية منشورة</h2>
+            <h3 class="font-bold text-teal-600">"رايةٌ لا تُنكس: عن يوم العلم وسارية الدرعية"</h3>
+            <p class="text-sm text-gray-500 mt-2">نُشر في 11 مارس 2026 - يتناول الرموز الوطنية والهوية السعودية.</p>
+        </section>
+    </main>
 
-            <!-- بطاقة مقال يوم العلم -->
-            <div class="glass p-10 text-right border-r-8 border-teal-400">
-                <span class="text-3xl mb-4 block shine-icon">🇸🇦</span>
-                <h3 class="text-3xl font-black mb-4 italic">رايةٌ لا تُنكس: سارية الدرعية</h3>
-                <p class="text-slate-200 text-lg leading-relaxed">تحليل صحفي احترافي يُبرز رمزية الهوية الوطنية، نُشر تزامناً مع يوم العلم السعودي 2026.</p>
-            </div>
-        </main>
-
-        <footer class="py-20 text-center">
-            <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" target="_blank" class="bg-white text-teal-900 px-14 py-5 rounded-full font-black text-xl hover:scale-110 transition shadow-[0_0_50px_rgba(255,255,255,0.3)] inline-block eng">
-                LET'S CONNECT
-            </a>
-            <p class="mt-12 text-teal-200/50 eng text-[10px] tracking-[0.5em]">NORAH ALNASSER © 2026</p>
-        </footer>
-    </div>
-
-    <script>
-        // كود النجوم لضمان عدم وجود فراغ أسود
-        const field = document.getElementById('starField');
-        for(let i=0; i<120; i++) {
-            const s = document.createElement('div');
-            s.className = 'star';
-            s.style.width = Math.random() * 4 + 'px';
-            s.style.height = s.style.width;
-            s.style.left = Math.random() * 100 + '%';
-            s.style.top = Math.random() * 100 + '%';
-            s.style.setProperty('--duration', (Math.random() * 2 + 1) + 's');
-            field.appendChild(s);
-        }
-    </script>
+    <footer class="text-center py-10">
+        <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" target="_blank" class="bg-teal-600 text-white px-8 py-3 rounded-full font-bold">تواصل معي عبر LinkedIn</a>
+    </footer>
 </body>
 </html>
