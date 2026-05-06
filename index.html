@@ -17,36 +17,29 @@
             font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth;
         }
 
-        /* تنسيق زر الترجمة ليكون ثابتاً في الأعلى */
-        #google_translate_element {
-            position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 3000;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 5px;
-            border-radius: 8px;
-            backdrop-filter: blur(5px);
+        /* زر تبديل اللغة الاحترافي */
+        #lang-switch {
+            position: fixed; top: 20px; left: 20px; z-index: 3000;
+            padding: 10px 20px; background: transparent; color: var(--gold);
+            border: 1px solid var(--gold); border-radius: 50px; cursor: pointer;
+            font-weight: bold; transition: 0.3s; backdrop-filter: blur(5px);
         }
+        #lang-switch:hover { background: var(--gold); color: #000; }
 
-        /* خلفية النجوم الكثيفة واللامعة والمتحركة */
+        /* خلفية النجوم */
         #stars-container { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-            overflow: hidden;
         }
         .star { 
-            position: absolute; background: white; border-radius: 50%; 
-            opacity: 0; animation: twinkle var(--duration) infinite ease-in-out, move var(--move-speed) infinite linear; 
+            position: absolute; background: white; border-radius: 50%; opacity: 0;
+            animation: twinkle var(--duration) infinite ease-in-out, move var(--move-speed) infinite linear; 
         }
         @keyframes twinkle { 
             0%, 100% { opacity: 0.3; transform: scale(0.8); } 
             50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #fff; } 
         }
-        @keyframes move {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100vh); }
-        }
+        @keyframes move { from { transform: translateY(0); } to { transform: translateY(-100vh); } }
 
         /* شاشة الترحيب */
         #welcome-screen {
@@ -56,12 +49,12 @@
             text-align: center; padding: 20px;
         }
 
-        /* حاوية المحتوى الرئيسي */
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; display: none; position: relative; z-index: 10; }
         .card { background: var(--card-bg); backdrop-filter: blur(15px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; margin-bottom: 40px; line-height: 1.9; }
         
         h1 { color: var(--gold); text-align: center; font-size: 2.8em; margin-bottom: 10px; }
         h2 { color: var(--gold); border-right: 4px solid var(--gold); padding-right: 15px; margin-bottom: 25px; font-size: 1.8em; }
+        .en h2 { border-right: none; border-left: 4px solid var(--gold); padding-left: 15px; padding-right: 0; }
         h3 { color: #82aaff; margin-top: 30px; font-size: 1.5em; border-bottom: 1px solid rgba(130, 170, 255, 0.1); padding-bottom: 10px; }
 
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 25px 0; }
@@ -71,43 +64,48 @@
         .link-btn { display: inline-block; padding: 12px 28px; color: var(--gold); border: 1px solid var(--gold); text-decoration: none; border-radius: 50px; transition: 0.3s; margin: 10px 5px; font-size: 0.95em; }
         .link-btn:hover { background: var(--gold); color: #000; font-weight: bold; box-shadow: 0 0 15px var(--gold); }
         .welcome-btn { padding: 18px 60px; font-size: 1.3em; background: transparent; color: var(--gold); border: 2px solid var(--gold); border-radius: 50px; cursor: pointer; transition: 0.4s; }
-        .welcome-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 30px var(--gold); }
 
-        ul { padding-right: 20px; list-style-type: diamond; }
-        li { margin-bottom: 15px; }
-        strong { color: var(--gold); }
+        /* التحكم في إظهار وإخفاء اللغات */
+        [lang="en"] { display: none; }
+        .en [lang="ar"] { display: none; }
+        .en [lang="en"] { display: block; }
+        .en { direction: ltr; text-align: left; }
     </style>
 </head>
 <body>
 
-    <div id="google_translate_element"></div>
+    <button id="lang-switch" onclick="toggleLang()">English</button>
 
     <div id="stars-container"></div>
 
     <div id="welcome-screen">
-        <h1 style="font-size: 3.8em;">نوره عبدالرحمن الناصر</h1>
-        <p style="font-size: 1.8em; color: var(--gold); margin-bottom: 40px;">نصنع التأثير.. ونقود المحتوى</p>
-        <button class="welcome-btn" onclick="enterSite()">استكشف عالمي المهني</button>
+        <h1 style="font-size: 3.8em;"><span lang="ar">نوره عبدالرحمن الناصر</span><span lang="en">Norah Alnasser</span></h1>
+        <p style="font-size: 1.8em; color: var(--gold); margin-bottom: 40px;"><span lang="ar">نصنع التأثير.. ونقود المحتوى</span><span lang="en">Creating Impact.. Leading Content</span></p>
+        <button class="welcome-btn" onclick="enterSite()"><span lang="ar">استكشف عالمي المهني</span><span lang="en">Explore My Portfolio</span></button>
     </div>
 
     <div class="container" id="mainContent">
         <header style="text-align: center; margin-bottom: 60px;">
-            <h1>نوره عبدالرحمن الناصر</h1>
-            <p style="color: var(--gold); font-size: 1.5em;">نصنع التأثير.. ونقود المحتوى</p>
+            <h1><span lang="ar">نوره عبدالرحمن الناصر</span><span lang="en">Norah Alnasser</span></h1>
+            <p style="color: var(--gold); font-size: 1.5em;"><span lang="ar">نصنع التأثير.. ونقود المحتوى</span><span lang="en">Creating Impact.. Leading Content</span></p>
         </header>
 
         <div class="card">
-            <h2>حياكم الله ..</h2>
-            <p>معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.</p>
+            <h2 lang="ar">حياكم الله ..</h2><h2 lang="en">Welcome ..</h2>
+            <p lang="ar">معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.</p>
+            <p lang="en">I am Norah, a Digital Journalism and Media graduate from Princess Nourah bint Abdulrahman University. I possess practical skills in media planning and digital content creation, with experience in student leadership and organizing official initiatives and events.</p>
         </div>
 
         <div class="card">
-            <h2>الخبرة العملية والأدوات المهنية</h2>
-            <h3>إدارة الإعلام والتواصل الرقمي</h3>
-            <ul>
-                <li><strong>تخطيط وصناعة المحتوى:</strong> ساهمت في إعداد وصياغة محتوى الحملات الإعلامية الرقمية (تغريدات ومنشورات)، بما في ذلك حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.</li>
-                <li><strong>التنفيذ والمتابعة:</strong> شاركت في تنفيذ الخطط الإعلامية وجدولة المحتوى لضمان وصول الرسائل الاتصالية للجمهور المستهدف بدقة.</li>
-                <li><strong>الرصد والتحليل الرقمي:</strong> رصد وتحليل أداء حسابات الهيئة على منصات التواصل الاجتماعي باستخدام أدوات احترافية مثل (Meltwater)، وإعداد تقارير أداء دورية لقياس التفاعل وأثر الحملات وتصميم بنرات الموقع الخارجي للهيئة.</li>
+            <h2 lang="ar">الخبرة العملية والأدوات المهنية</h2><h2 lang="en">Professional Experience</h2>
+            <h3 lang="ar">إدارة الإعلام والتواصل الرقمي</h3><h3 lang="en">Digital Media & Communication Management</h3>
+            <ul lang="ar">
+                <li><strong>تخطيط وصناعة المحتوى:</strong> حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.</li>
+                <li><strong>الرصد والتحليل الرقمي:</strong> استخدام أدوات Meltwater وإعداد تقارير الأداء.</li>
+            </ul>
+            <ul lang="en">
+                <li><strong>Content Planning:</strong> Contributed to the 2024 Annual Report campaign and Graduate Qualification Program.</li>
+                <li><strong>Monitoring & Analytics:</strong> Using Meltwater tools for digital performance reports.</li>
             </ul>
             <div class="gallery">
                 <img src="./cma-1.jfif"> <img src="./cma-2.jfif"> <img src="./cma-logo.jfif"> <img src="./cma-3.jfif">
@@ -115,76 +113,51 @@
         </div>
 
         <div class="card">
-            <h2>المشاريع والمهارات</h2>
-            <p><strong>تصميم الإعلانات والمنشورات الرقمية:</strong></p>
-            <img src="./design-council-initiative.jfif" class="img-full">
-            <div style="text-align: center; margin-bottom: 30px;">
-                <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" class="link-btn" target="_blank">شاهد المزيد من الاعلانات والمنشورات في لينكدان 🔗</a>
-            </div>
-            
-            <h3>التمثيل الإعلامي وإدارة الأجنحة التعريفية في الفعاليات</h3>
-            <p>شاركت كممثلة رسمية لعدة أجنحة تعريفية في فعاليات جامعية، من أبرزها بوث المنتدى السعودي للإعلام، حيث توليت التعريف بالمبادرة، شرح أهدافها للطالبات والزوار، والتسويق لها بشكل مباشر.</p>
-            <div class="gallery">
-                <img src="./council-meeting-session.jfif"> <img src="./uni-group-graduation.jfif"> <img src="./media-forum-2.jfif">
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>القيادة الإعلامية وإدارة الفعاليات</h2>
-            <p>قدت فريق مشروع ملتقى النقد الإعلامي، ووزعت المهام على أعضاء فريقي لضمان تنفيذ كل جزء بكفاءة. صممت العرض التقديمي الرسمي للملتقى، والشعار الرسمي، وكتيب الإرشادات لتسهيل متابعة الحضور للفعالية. قدمت الضيوف المميزين والترحيب بهم أمام الجمهور، من بينهم إعلاميون بارزون مثل ياسر الجنيد وعبدالله الحسيني.</p>
+            <h2 lang="ar">القيادة الإعلامية وإدارة الفعاليات</h2><h2 lang="en">Media Leadership & Event Management</h2>
+            <p lang="ar">قدت فريق مشروع ملتقى النقد الإعلامي، وصممت العرض التقديمي الرسمي والشعار، وقدمت الضيوف الإعلاميين البارزين.</p>
+            <p lang="en">Led the Media Criticism Forum project, designed the official branding and presentation, and moderated sessions with prominent media figures.</p>
             <div class="gallery">
                 <img src="./criticism-event-2.jfif"> <img src="./criticism-event.jfif">
             </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="https://www.linkedin.com/posts/norah-alnasser-b2026919b_aetaesaesaeqaexabraepaesaeuaeqaexabraepaesaenaehaesaepaetaey-activity-7269363536244457472-7TxK" class="link-btn" target="_blank" style="background:var(--gold); color:#000; font-weight:bold;">للتفاصيل 🔗</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>إدارة الحملات الإعلامية الرقمية وإنتاج المحتوى</h2>
-            <p>شاركت في حملة “صحتك بجوالك” بالتعاون مع الجامعة، حيث توليت إعداد الفيديو الترويجي بما في ذلك تسجيل الصوت والمونتاج. كما قمت بإعداد ملف خطة الحملة الكاملة، والذي تضمن خطة النشر، التايم لاين، والملخص التنفيذي.</p>
             <div style="text-align: center;">
-                <a href="https://drive.google.com/drive/folders/1c_Qlr3EnmtASEf1hPSHo8NLYl6KyoH04" class="link-btn" target="_blank">🔗 رابط ملف الحملة الكامل (Google Drive)</a>
+                <a href="https://www.linkedin.com/posts/norah-alnasser-b2026919b_aetaesaesaeqaexabraepaesaeuaeqaexabraepaesaenaehaesaepaetaey-activity-7269363536244457472-7TxK" class="link-btn" target="_blank">
+                    <span lang="ar">للتفاصيل 🔗</span><span lang="en">Details 🔗</span>
+                </a>
             </div>
-        </div>
-
-        <div class="card">
-            <h2>الأعمال المنشورة</h2>
-            <p>1- <strong>خبر صحفي:</strong> افتتاح معرض الدون بالرياض. <a href="https://shahdnow.sa/240268/" class="link-btn" target="_blank">رابط الخبر</a></p>
-            <p>2- <strong>حوار صحفي:</strong> مستقبل فنون العمارة بالمملكة. <a href="https://shahdnow.sa/240411/" class="link-btn" target="_blank">رابط الحوار</a></p>
-            <p>3- <strong>مقال:</strong> “راية لا تُنكّس”.. سارية الدرعية التاريخية. <a href="https://shahdnow.sa/336421/" class="link-btn" target="_blank">رابط المقال</a></p>
         </div>
 
         <div class="card" style="text-align: center;">
-            <h2>ماذا أيضاً</h2>
-            <p style="font-size: 1.3em; color: var(--gold);">اسعد بالتعاون والعمل معكم</p>
-            <h3>قنوات التواصل</h3>
-            <p><strong>إيميل:</strong> norahabdul15@gmail.com</p>
-            <p><strong>لينكدإن:</strong> <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" style="color: white; text-decoration: none;" target="_blank">Norah Alnasser</a></p>
+            <h2 lang="ar">قنوات التواصل</h2><h2 lang="en">Contact Me</h2>
+            <p><strong>Email:</strong> norahabdul15@gmail.com</p>
+            <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" class="link-btn" target="_blank">LinkedIn</a>
         </div>
     </div>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
     <script>
+        function toggleLang() {
+            const body = document.body;
+            const btn = document.getElementById('lang-switch');
+            if (body.classList.contains('en')) {
+                body.classList.remove('en');
+                body.dir = "rtl";
+                btn.innerText = "English";
+            } else {
+                body.classList.add('en');
+                body.dir = "ltr";
+                btn.innerText = "عربي";
+            }
+        }
+
         function enterSite() {
             document.getElementById('welcome-screen').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('welcome-screen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
-                window.scrollTo(0,0);
             }, 1000);
         }
 
         const container = document.getElementById('stars-container');
-        const starCount = 450; 
-
-        for (let i = 0; i < starCount; i++) {
+        for (let i = 0; i < 400; i++) {
             const star = document.createElement('div');
             star.className = 'star';
             star.style.left = Math.random() * 100 + '%';
@@ -194,7 +167,7 @@
             star.style.height = size;
             star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
             star.style.setProperty('--move-speed', (Math.random() * 80 + 60) + 's');
-            star.style.animationDelay = Math.random() * 5 + 's';
+            star.appendChild(container); // Corrected this line
             container.appendChild(star);
         }
     </script>
