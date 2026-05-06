@@ -3,131 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نورة الناصر | ملف الإنجاز الرقمي</title>
+    <title>Norah Alnasser | نورة الناصر</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Noto+Kufi+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
     <style>
-        :root { --tiffany: #0abab5; --deep-teal: #053b39; }
-        body { font-family: 'Noto Kufi Arabic', sans-serif; background-color: #fcfdfd; color: var(--deep-teal); scroll-behavior: smooth; }
-        .eng { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(to bottom, #020107 0%, #050a30 50%, #000c66 100%);
+            background-attachment: fixed;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
         
-        /* تأثيرات حركية */
-        .fade-in { animation: fadeIn 1.5s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* نجوم سماء الليل */
+        .star { position: fixed; background: white; border-radius: 50%; opacity: 0.5; animation: twinkle var(--duration) infinite; z-index: 0; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
+
+        /* ترحيب اليد */
+        .wave { display: inline-block; animation: wave-animation 2.5s infinite; transform-origin: 70% 70%; }
+        @keyframes wave-animation {
+            0% { transform: rotate( 0.0deg) } 10% { transform: rotate(14.0deg) } 20% { transform: rotate(-8.0deg) }
+            30% { transform: rotate(14.0deg) } 40% { transform: rotate(-4.0deg) } 50% { transform: rotate(10.0deg) }
+            60% { transform: rotate( 0.0deg) } 100% { transform: rotate( 0.0deg) }
+        }
+
+        /* تأثير الأوراق المفرقة (Glassmorphism) */
+        .glass-folder {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            transition: 0.5s ease;
+        }
+        .glass-folder:hover { border-color: #0abab5; transform: translateY(-5px); }
         
-        .header-gradient { background: linear-gradient(135deg, #0abab5 0%, #053b39 100%); position: relative; overflow: hidden; }
-        .glass-card { background: white; border-radius: 2rem; border: 1px solid #eef2f2; box-shadow: 0 10px 40px rgba(0,0,0,0.03); transition: 0.4s; }
-        .glass-card:hover { transform: translateY(-10px); border-color: var(--tiffany); box-shadow: 0 20px 50px rgba(10, 186, 181, 0.1); }
-        
-        .floating-badge { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 1rem; }
+        .eng-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .tiffany-text { color: #0abab5; }
     </style>
 </head>
 <body>
 
-    <!-- Header & Personal Intro -->
-    <header class="header-gradient text-white py-32 px-6 text-center">
-        <div class="max-w-4xl mx-auto fade-in">
-            <div class="eng text-xs font-bold tracking-[0.5em] mb-6 opacity-70 uppercase">Media & Digital Journalism</div>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight">نورة الناصر</h1>
-            
-            <p class="text-xl md:text-2xl leading-relaxed opacity-95 font-light max-w-2xl mx-auto mb-10">
-                خريجة جامعة الأميرة نورة بنت عبدالرحمن بمرتبة الشرف الثانية. متخصصة في صناعة المحتوى الرقمي والاتصال المؤسسي، مع خبرة عملية في رصد وتحليل الأداء الإعلامي.
-            </p>
-            
-            <div class="inline-block floating-badge p-6 md:p-10">
-                <h3 class="eng text-2xl md:text-3xl font-black italic mb-2 italic">Creating Impact with Every Beat</h3>
-                <p class="eng text-[10px] tracking-[0.4em] uppercase opacity-60">"Transforming Communication into Strategy"</p>
-            </div>
-        </div>
-    </header>
+    <!-- Stars Logic -->
+    <div id="stars-container"></div>
+    <script>
+        const container = document.getElementById('stars-container');
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 2.5 + 'px';
+            star.style.width = size; star.style.height = size;
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+            container.appendChild(star);
+        }
+    </script>
 
-    <main class="max-w-6xl mx-auto px-6 -mt-16 pb-32">
+    <!-- Intro: Welcome -->
+    <section class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center p-6">
+        <span class="wave text-7xl mb-8">👋</span>
+        <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter text-white">نورة الناصر</h1>
+        <h2 class="eng-font text-2xl md:text-3xl font-bold tiffany-text tracking-[0.3em] uppercase mb-10">Norah Alnasser</h2>
+        <p class="text-lg md:text-xl max-w-2xl leading-relaxed opacity-80 font-light">
+            خريجة إعلام وصحافة رقمية من جامعة الأميرة نورة. 
+            صانعة محتوى استراتيجي أسعى لترك أثر ملموس في المشهد الرقمي السعودي.
+        </p>
+    </section>
+
+    <!-- Content Sections -->
+    <main class="relative z-10 max-w-6xl mx-auto px-6 pb-32 space-y-16">
         
-        <!-- Summary Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16 fade-in">
-            <div class="glass-card p-8 text-center">
-                <div class="text-teal-500 font-black text-3xl mb-1">PNU</div>
-                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Second Class Honors</div>
-            </div>
-            <div class="glass-card p-8 text-center">
-                <div class="text-teal-500 font-black text-3xl mb-1">CMA</div>
-                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Co-op Training</div>
-            </div>
-            <div class="glass-card p-8 text-center">
-                <div class="text-teal-500 font-black text-3xl mb-1">2026</div>
-                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Published Articles</div>
-            </div>
-            <div class="glass-card p-8 text-center">
-                <div class="text-teal-500 font-black text-3xl mb-1">SMF</div>
-                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Media Forum Participant</div>
+        <!-- Section: Professional Identity -->
+        <div class="glass-folder p-10 md:p-16">
+            <h3 class="text-3xl font-black mb-8 border-r-4 border-[#0abab5] pr-6">الهوية المهنية</h3>
+            <p class="text-xl leading-relaxed mb-8">
+                حاصلة على بكالوريوس في الإعلام الرقمي بمرتبة الشرف الثانية. 
+                أجمع بين المهارة الصحفية والتحليل الرقمي لتقديم محتوى يواكب تطلعات رؤية المملكة 2030.
+            </p>
+            <div class="flex justify-center">
+                <img src="profile.jfif" class="rounded-2xl w-full max-w-md shadow-2xl border border-white/10" alt="Norah">
             </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-10">
-            
-            <!-- Column 1 & 2: Main Content -->
-            <div class="md:col-span-2 space-y-12">
-                
-                <!-- CMA Experience -->
-                <section class="glass-card p-10 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-bl-full opacity-50"></div>
-                    <h2 class="text-3xl font-black mb-8 border-r-4 border-teal-500 pr-4 relative">التدريب التعاوني: هيئة السوق المالية</h2>
-                    <p class="text-gray-600 leading-relaxed text-lg mb-8">
-                        خلال فترة تدريبي في إدارة الإعلام والتواصل الرقمي بهيئة السوق المالية (CMA)، شاركت في رصد التفاعل الإعلامي لعام 2024 باستخدام منصات تحليل البيانات مثل <b>Meltwater</b>. ساهمت في صياغة محتوى رقمي استراتيجي يعكس الهوية المؤسسية للهيئة ويواكب التطورات في السوق المالية السعودية.
+        <!-- Section: Experience (CMA) -->
+        <div class="glass-folder p-10 md:p-16">
+            <h3 class="text-3xl font-black mb-8 border-r-4 border-[#0abab5] pr-6">الخبرات العملية</h3>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h4 class="text-2xl font-bold tiffany-text">هيئة السوق المالية (CMA)</h4>
+                    <p class="opacity-80 leading-relaxed text-lg text-justify">
+                        تدربت في إدارة الإعلام والتواصل الرقمي، حيث ساهمت في رصد التفاعل الإعلامي لعام 2024 باستخدام منصات تحليلية عالمية مثل Meltwater. 
+                        شاركت في تطوير محتوى التقرير السنوي والتمثيل الإعلامي في المحافل الدولية والمحلية.
                     </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <img src="cma-1.jfif" class="rounded-3xl shadow-lg hover:scale-105 transition duration-500" alt="CMA Office">
-                        <img src="cma-logo.jfif" class="rounded-3xl shadow-lg hover:scale-105 transition duration-500" alt="CMA Event">
-                    </div>
-                </section>
-
-                <!-- Published Article -->
-                <section class="glass-card p-10 bg-teal-50/20">
-                    <h2 class="text-3xl font-black mb-6">النتاج الفكري والصحفي</h2>
-                    <div class="border-r-4 border-teal-500 pr-6">
-                        <h3 class="text-2xl font-bold mb-3">رايةٌ لا تُنكس: سارية الدرعية وفخر العلم</h3>
-                        <p class="text-gray-500 text-sm mb-6">نُشر في 11 مارس 2026 - تزامناً مع يوم العلم السعودي</p>
-                        <p class="text-gray-600 leading-relaxed italic mb-8">
-                            "يرتفع العلم السعودي ليروي قصة مجدٍ لا تنطفئ.. سارية الدرعية ليست مجرد هيكل، بل هي تجسيد للسيادة والهوية التي يحملها كل مواطن في قلبه."
-                        </p>
-                    </div>
-                </section>
-
-            </div>
-
-            <!-- Column 3: Sidebar Details -->
-            <div class="space-y-10">
-                <section class="glass-card p-8">
-                    <h3 class="eng text-[10px] font-black tracking-widest text-teal-500 mb-6 uppercase">Key Expertise</h3>
-                    <ul class="space-y-6">
-                        <li class="flex items-start gap-4">
-                            <span class="w-2 h-2 bg-teal-400 rounded-full mt-2"></span>
-                            <div><p class="font-bold text-sm">الصحافة الرقمية</p><p class="text-xs text-gray-400">Digital Storytelling</p></div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-2 h-2 bg-teal-400 rounded-full mt-2"></span>
-                            <div><p class="font-bold text-sm">رصد البيانات الإعلامية</p><p class="text-xs text-gray-400">Media Monitoring (Meltwater)</p></div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="w-2 h-2 bg-teal-400 rounded-full mt-2"></span>
-                            <div><p class="font-bold text-sm">الاتصال المؤسسي</p><p class="text-xs text-gray-400">Corporate Communications</p></div>
-                        </li>
-                    </ul>
-                </section>
-
-                <div class="glass-card p-6 overflow-hidden">
-                    <img src="profile.jfif" class="rounded-2xl w-full grayscale hover:grayscale-0 transition duration-700" alt="Norah Portrait">
-                    <p class="text-center mt-4 eng text-[10px] font-bold text-teal-600 uppercase tracking-tighter">Professional Identity</p>
+                </div>
+                <div class="grid grid-cols-1 gap-6">
+                    <img src="cma-logo.jfif" class="rounded-2xl shadow-xl w-32 mx-auto" alt="Logo">
+                    <img src="cma-1.jfif" class="rounded-2xl shadow-xl border border-white/5" alt="CMA Work">
                 </div>
             </div>
         </div>
+
+        <!-- Section: Creative Works -->
+        <div class="glass-folder p-10 md:p-16">
+            <h3 class="text-3xl font-black mb-8 border-r-4 border-[#0abab5] pr-6">كتابات صحفية</h3>
+            <div class="bg-white/5 p-8 rounded-3xl">
+                <h4 class="text-2xl font-bold mb-4 italic">"رايةٌ لا تُنكس: سارية الدرعية"</h4>
+                <p class="opacity-70 leading-relaxed">
+                    تحليل صحفي بمناسبة يوم العلم السعودي (11 مارس 2026)، يستعرض رمزية العلم في الهوية الوطنية السعودية وتاريخ سارية الدرعية.
+                </p>
+            </div>
+        </div>
+
+        <!-- Section: Highlights Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-folder p-8 text-center">
+                <img src="uni-group-graduation.jfif" class="rounded-xl mb-4 h-48 w-full object-cover" alt="Graduation">
+                <p class="eng-font text-xs font-bold opacity-50 uppercase tracking-widest">Graduation Day</p>
+            </div>
+            <div class="glass-folder p-8 text-center">
+                <img src="media-forum-1.jfif" class="rounded-xl mb-4 h-48 w-full object-cover" alt="Forum">
+                <p class="eng-font text-xs font-bold opacity-50 uppercase tracking-widest">Media Forum</p>
+            </div>
+            <div class="glass-folder p-8 text-center">
+                <img src="criticism-event-1.jfif" class="rounded-xl mb-4 h-48 w-full object-cover" alt="Event">
+                <p class="eng-font text-xs font-bold opacity-50 uppercase tracking-widest">Leadership</p>
+            </div>
+        </div>
+
     </main>
 
-    <footer class="py-24 text-center border-t border-gray-100">
-        <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" target="_blank" class="bg-teal-600 text-white px-20 py-6 rounded-full font-black text-xl hover:bg-teal-700 transition shadow-2xl inline-block eng tracking-widest">
-            CONNECT ON LINKEDIN
+    <!-- Footer -->
+    <footer class="relative z-10 py-20 text-center border-t border-white/5">
+        <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" target="_blank" class="glass-folder px-12 py-5 inline-block hover:bg-white hover:text-[#050a30] font-black text-xl transition-all duration-500 shadow-teal-500/20">
+            LinkedIn التواصل المهني عبر
         </a>
-        <p class="mt-12 text-gray-400 eng text-[10px] tracking-[0.5em] uppercase italic">© 2026 Norah Alnasser. All Rights Reserved.</p>
+        <p class="mt-12 eng-font text-[10px] tracking-[0.5em] opacity-30 uppercase italic">Created by Norah Alnasser © 2026</p>
     </footer>
 
 </body>
