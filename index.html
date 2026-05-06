@@ -10,6 +10,7 @@
             --space-bg: #050b1a;
             --gold: #d4af37;
             --card-bg: rgba(255, 255, 255, 0.08);
+            --blue-accent: #82aaff;
         }
 
         body, html {
@@ -17,11 +18,11 @@
             font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth;
         }
 
-        /* زر تغيير اللغة العائم */
+        /* زر تبديل اللغة العائم */
         #lang-toggle-nav {
             position: fixed; top: 20px; left: 20px; z-index: 3000;
             padding: 10px 20px; border: 1px solid var(--gold); color: var(--gold);
-            background: rgba(5, 11, 26, 0.7); border-radius: 50px; cursor: pointer;
+            background: rgba(5, 11, 26, 0.8); border-radius: 50px; cursor: pointer;
             display: none; backdrop-filter: blur(8px); transition: 0.3s; font-weight: bold;
         }
         #lang-toggle-nav:hover { background: var(--gold); color: #000; }
@@ -32,14 +33,13 @@
         @keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #fff; } }
         @keyframes move { from { transform: translateY(0); } to { transform: translateY(-100vh); } }
 
-        /* شاشة الترحيب */
+        /* شاشة الترحيب واختيار اللغة */
         #welcome-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--space-bg); display: flex; flex-direction: column;
             justify-content: center; align-items: center; z-index: 2000; transition: 1s ease-in-out;
             text-align: center; padding: 20px;
         }
-
         .lang-options { display: flex; gap: 20px; margin-top: 30px; }
         .welcome-btn {
             padding: 15px 45px; font-size: 1.2em; background: transparent;
@@ -48,12 +48,14 @@
         }
         .welcome-btn:hover { background: var(--gold); color: #000; box-shadow: 0 0 25px var(--gold); }
 
+        /* الحاوية الرئيسية */
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; display: none; position: relative; z-index: 10; }
         .card { background: var(--card-bg); backdrop-filter: blur(15px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; margin-bottom: 40px; line-height: 1.9; }
         
         h1 { color: var(--gold); text-align: center; font-size: 2.8em; margin-bottom: 10px; }
         h2 { color: var(--gold); border-right: 4px solid var(--gold); padding-right: 15px; margin-bottom: 25px; font-size: 1.8em; }
-        
+        h3 { color: var(--blue-accent); margin-top: 30px; border-bottom: 1px solid rgba(130, 170, 255, 0.1); padding-bottom: 10px; }
+
         .en h2 { border-right: none; border-left: 4px solid var(--gold); padding-left: 15px; padding-right: 0; }
         .en { direction: ltr; text-align: left; }
 
@@ -65,8 +67,8 @@
         .link-btn:hover { background: var(--gold); color: #000; }
 
         [data-lang] { display: none; }
-        ul { padding-right: 20px; }
-        .en ul { padding-right: 0; padding-left: 20px; }
+        ul { padding-right: 25px; list-style-type: square; }
+        .en ul { padding-right: 0; padding-left: 25px; }
     </style>
 </head>
 <body class="ar-mode">
@@ -96,19 +98,21 @@
         <div class="card">
             <h2 data-lang="ar">حياكم الله ..</h2><h2 data-lang="en">Welcome ..</h2>
             <p data-lang="ar">معكم نورهـ خريجة صحافة وإعلام رقمي من جامعة الأميرة نورة بنت عبدالرحمن. أمتلك مهارات عملية في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية.</p>
-            <p data-lang="en">I am Norah, a Digital Journalism and Media graduate from PNU. I possess practical skills in media planning and digital content creation, with experience in student leadership and organizing official initiatives.</p>
+            <p data-lang="en">I am Norah, a Digital Journalism and Media graduate from PNU. I possess practical skills in media planning and digital content creation, along with experience in student leadership and organizing official initiatives.</p>
         </div>
 
         <div class="card">
             <h2 data-lang="ar">الخبرة العملية والأدوات المهنية</h2><h2 data-lang="en">Professional Experience</h2>
-            <h3 data-lang="ar">إدارة الإعلام والتواصل الرقمي</h3><h3 data-lang="en">Digital Media & Communication</h3>
+            <h3 data-lang="ar">إدارة الإعلام والتواصل الرقمي</h3><h3 data-lang="en">Digital Media & Communication Management</h3>
             <ul data-lang="ar">
-                <li><strong>تخطيط وصناعة المحتوى:</strong> إعداد محتوى حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.</li>
-                <li><strong>الرصد والتحليل الرقمي:</strong> استخدام أدوات (Meltwater) وإعداد تقارير الأداء وتصميم بنرات الموقع الخارجي.</li>
+                <li><strong>تخطيط وصناعة المحتوى:</strong> ساهمت في إعداد وصياغة محتوى الحملات الإعلامية الرقمية (تغريدات ومنشورات)، بما في ذلك حملة التقرير السنوي للهيئة 2024 وحملة برنامج تأهيل الخريجين.</li>
+                <li><strong>التنفيذ والمتابعة:</strong> شاركت في تنفيذ الخطط الإعلامية وجدولة المحتوى لضمان وصول الرسائل الاتصالية للجمهور المستهدف بدقة.</li>
+                <li><strong>الرصد والتحليل الرقمي:</strong> رصد وتحليل أداء حسابات الهيئة باستخدام أدوات (Meltwater)، وإعداد تقارير أداء دورية وتصميم بنرات الموقع الخارجي للهيئة.</li>
             </ul>
             <ul data-lang="en">
-                <li><strong>Content Planning:</strong> 2024 CMA Annual Report campaign and Graduate Qualification Program.</li>
-                <li><strong>Monitoring & Analytics:</strong> Using Meltwater tools for performance reports and web banner design.</li>
+                <li><strong>Content Planning:</strong> Drafting content for digital media campaigns, including the 2024 Annual Report and Graduate Qualification Program.</li>
+                <li><strong>Execution:</strong> Implementing media plans and content scheduling for targeted audience reach.</li>
+                <li><strong>Monitoring & Analytics:</strong> Analyzing social media performance using Meltwater, preparing reports, and designing web banners.</li>
             </ul>
             <div class="gallery">
                 <img src="./cma-1.jfif"> <img src="./cma-2.jfif"> <img src="./cma-logo.jfif"> <img src="./cma-3.jfif">
@@ -118,52 +122,50 @@
         <div class="card">
             <h2 data-lang="ar">المشاريع والمهارات</h2><h2 data-lang="en">Projects & Skills</h2>
             <p data-lang="ar"><strong>تصميم الإعلانات والمنشورات الرقمية:</strong></p>
-            <p data-lang="en"><strong>Digital Ads & Publications:</strong></p>
+            <p data-lang="en"><strong>Digital Ads & Publication Design:</strong></p>
             <img src="./design-council-initiative.jfif" class="img-full">
             
-            <h3 data-lang="ar">التمثيل الإعلامي وإدارة الأجنحة التعريفية</h3>
-            <h3 data-lang="en">Media Representation & Booth Management</h3>
-            <p data-lang="ar">شاركت كممثلة رسمية في المنتدى السعودي للإعلام، مما عزز مهاراتي في الإقناع والتواصل الجماهيري.</p>
-            <p data-lang="en">Official representative at the Saudi Media Forum, enhancing my public communication and persuasion skills.</p>
+            <h3 data-lang="ar">التمثيل الإعلامي وإدارة الأجنحة التعريفية</h3><h3 data-lang="en">Media Representation & Booth Management</h3>
+            <p data-lang="ar">شاركت كممثلة رسمية لعدة أجنحة تعريفية، أبرزها بوث المنتدى السعودي للإعلام. توليت التعريف بالمبادرة، شرح الأهداف، والتسويق المباشر، مما عزز مهاراتي في الإقناع والتواصل الجماهيري.</p>
+            <p data-lang="en">Official representative at various booths, including the Saudi Media Forum. Managed direct marketing and public engagement, enhancing persuasion and field management skills.</p>
             <div class="gallery">
                 <img src="./council-meeting-session.jfif"> <img src="./uni-group-graduation.jfif"> <img src="./media-forum-2.jfif">
-            </div>
-            <div style="text-align: center;">
-                <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" class="link-btn" target="_blank">
-                    <span data-lang="ar">شاهد المزيد من الاعلانات في لينكدان 🔗</span>
-                    <span data-lang="en">View more on LinkedIn 🔗</span>
-                </a>
             </div>
         </div>
 
         <div class="card">
-            <h2 data-lang="ar">القيادة الإعلامية وإدارة الفعاليات</h2><h2 data-lang="en">Media Leadership</h2>
-            <p data-lang="ar">قدت فريق ملتقى النقد الإعلامي، صممت الشعار وكتيب الإرشادات، وقدمت ضيوفاً بارزين مثل ياسر الجنيد وعبدالله الحسيني.</p>
-            <p data-lang="en">Led the Media Criticism Forum team, designed the logo and guidelines, and hosted prominent figures like Yasser Al-Junaid.</p>
+            <h2 data-lang="ar">القيادة الإعلامية وإدارة الفعاليات</h2><h2 data-lang="en">Media Leadership & Event Management</h2>
+            <p data-lang="ar">قدت فريق مشروع ملتقى النقد الإعلامي، ووزعت المهام بكفاءة. صممت العرض التقديمي، الشعار الرسمي، وكتيب الإرشادات. كما قدمت الضيوف البارزين مثل ياسر الجنيد وعبدالله الحسيني.</p>
+            <p data-lang="en">Led the Media Criticism Forum team, designed official branding, and moderated sessions with prominent figures such as Yasser Al-Junaid.</p>
             <div class="gallery">
                 <img src="./criticism-event-2.jfif"> <img src="./criticism-event.jfif">
             </div>
+        </div>
+
+        <div class="card">
+            <h2 data-lang="ar">إدارة الحملات الإعلامية الرقمية وإنتاج المحتوى</h2><h2 data-lang="en">Campaign Management & Content Production</h2>
+            <p data-lang="ar">شاركت في حملة "صحتك بجوالك"، توليت إعداد الفيديو الترويجي (تسجيل ومونتاج) وإعداد ملف الخطة الكاملة والملخص التنفيذي.</p>
+            <p data-lang="en">Participated in the "Your Health in Your Phone" campaign, handling video production (voice-over/editing) and full strategic planning.</p>
             <div style="text-align: center;">
-                <a href="https://www.linkedin.com/posts/norah-alnasser-b2026919b_aetaesaesaeqaexabraepaesaeuaeqaexabraepaesaenaehaesaepaetaey-activity-7269363536244457472-7TxK" class="link-btn" target="_blank">
-                    <span data-lang="ar">للتفاصيل 🔗</span><span data-lang="en">Details 🔗</span>
-                </a>
+                <a href="https://drive.google.com/drive/folders/1c_Qlr3EnmtASEf1hPSHo8NLYl6KyoH04" class="link-btn" target="_blank">🔗 <span data-lang="ar">رابط ملف الحملة</span><span data-lang="en">Campaign Folder Link</span></a>
             </div>
         </div>
 
         <div class="card">
             <h2 data-lang="ar">الأعمال المنشورة</h2><h2 data-lang="en">Published Works</h2>
-            <p>1- <span data-lang="ar">افتتاح معرض الدون بالرياض</span><span data-lang="en">CR7 Exhibition Opening</span> 
-               <a href="https://shahdnow.sa/240268/" class="link-btn" target="_blank">Link</a></p>
-            <p>2- <span data-lang="ar">لمحة عن مستقبل فنون العمارة</span><span data-lang="en">Future of Architecture in KSA</span> 
-               <a href="https://shahdnow.sa/240411/" class="link-btn" target="_blank">Link</a></p>
-            <p>3- <span data-lang="ar">مقال "راية لا تُنكّس"</span><span data-lang="en">Article: A Flag Never Lowered</span> 
-               <a href="https://shahdnow.sa/336421/" class="link-btn" target="_blank">Link</a></p>
+            <p>1- <span data-lang="ar">افتتاح معرض الدون بالرياض</span><span data-lang="en">CR7 Exhibition Opening</span> | <a href="https://shahdnow.sa/240268/" class="link-btn" target="_blank">Link</a></p>
+            <p>2- <span data-lang="ar">حوار صحفي: مستقبل فنون العمارة</span><span data-lang="en">Interview: Future of Architecture</span> | <a href="https://shahdnow.sa/240411/" class="link-btn" target="_blank">Link</a></p>
+            <p>3- <span data-lang="ar">مقال "راية لا تُنكّس".. سارية الدرعية</span><span data-lang="en">Article: Diriyah Historical Mast</span> | <a href="https://shahdnow.sa/336421/" class="link-btn" target="_blank">Link</a></p>
         </div>
 
         <div class="card" style="text-align: center;">
-            <h2 data-lang="ar">تواصل معي</h2><h2 data-lang="en">Contact Me</h2>
-            <p>Email: norahabdul15@gmail.com</p>
-            <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" class="link-btn" target="_blank">LinkedIn</a>
+            <h2 data-lang="ar">ماذا أيضاً؟</h2><h2 data-lang="en">What Else?</h2>
+            <p data-lang="ar" style="font-size: 1.4em; color: var(--gold);">أسعد بالتعاون والعمل معكم</p>
+            <p data-lang="en" style="font-size: 1.4em; color: var(--gold);">Happy to collaborate and work with you</p>
+            <div style="margin-top: 30px;">
+                <p>Email: norahabdul15@gmail.com</p>
+                <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" class="link-btn" target="_blank">LinkedIn</a>
+            </div>
         </div>
     </div>
 
@@ -190,6 +192,7 @@
         function updateUI() {
             const container = document.getElementById('mainContent');
             const toggleBtn = document.getElementById('lang-toggle-nav');
+            
             if (currentLang === 'en') {
                 container.classList.add('en');
                 document.documentElement.dir = "ltr";
@@ -199,11 +202,13 @@
                 document.documentElement.dir = "rtl";
                 toggleBtn.innerText = "English";
             }
+
             document.querySelectorAll('[data-lang]').forEach(el => {
                 el.style.display = (el.getAttribute('data-lang') === currentLang) ? 'inline-block' : 'none';
             });
         }
 
+        // نجوم الخلفية
         const starBox = document.getElementById('stars-container');
         for (let i = 0; i < 400; i++) {
             const s = document.createElement('div');
