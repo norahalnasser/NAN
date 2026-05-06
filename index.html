@@ -15,57 +15,40 @@
         body, html {
             margin: 0; padding: 0; background: var(--space-bg); color: white;
             font-family: 'Tajawal', sans-serif; overflow-x: hidden; scroll-behavior: smooth;
+            min-height: 100vh;
         }
 
-        /* خلفية النجوم المحسنة */
+        /* خلفية النجوم - تأكدي أن هذا الجزء لم يتغير */
         #stars-container { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            z-index: -1; background: #050b1a;
             overflow: hidden;
         }
         .star { 
             position: absolute; background: white; border-radius: 50%; 
-            opacity: 0.5; animation: twinkle var(--duration) infinite ease-in-out, move var(--move-duration) infinite linear; 
+            opacity: 0; animation: twinkle var(--duration) infinite ease-in-out; 
         }
         
         @keyframes twinkle { 
-            0%, 100% { opacity: 0.3; transform: scale(1); } 
-            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px white; } 
-        }
-        @keyframes move {
-            from { transform: translateY(0); }
-            to { transform: translateY(-100vh); }
+            0% { opacity: 0; transform: scale(0.5); } 
+            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #fff; } 
+            100% { opacity: 0; transform: scale(0.5); } 
         }
 
-        /* صفحة الترحيب */
         #welcome-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--space-bg); display: flex; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 2000; transition: 0.8s;
-            text-align: center; padding: 20px;
+            justify-content: center; align-items: center; z-index: 2000; transition: 1s;
         }
-        .welcome-btn {
-            padding: 16px 50px; font-size: 1.3em; background: transparent;
-            color: var(--gold); border: 2px solid var(--gold); border-radius: 50px;
-            cursor: pointer; transition: 0.3s;
-        }
-        .welcome-btn:hover { background: var(--gold); color: var(--space-bg); box-shadow: 0 0 40px var(--gold); }
 
-        /* المحتوى الرئيسي */
         .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; display: none; position: relative; z-index: 10; }
-        .card { background: var(--card-bg); backdrop-filter: blur(12px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; margin-bottom: 40px; line-height: 1.9; }
+        .card { background: var(--card-bg); backdrop-filter: blur(15px); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); padding: 40px; margin-bottom: 40px; }
         
-        h1 { color: var(--gold); text-align: center; font-size: 2.8em; }
-        h2 { color: var(--gold); border-right: 4px solid var(--gold); padding-right: 15px; margin-bottom: 25px; font-size: 1.8em; }
-        h3 { color: #82aaff; margin-top: 30px; font-size: 1.5em; border-bottom: 1px solid rgba(130, 170, 255, 0.2); padding-bottom: 10px; }
-
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
-        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); }
+        .gallery img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); }
 
-        .img-full { width: 100%; border-radius: 15px; margin: 20px 0; border: 1px solid rgba(255,255,255,0.2); }
-
-        .link-btn { display: inline-block; padding: 10px 25px; color: var(--gold); border: 1px solid var(--gold); text-decoration: none; border-radius: 50px; margin: 10px 0; transition: 0.3s; }
-        .link-btn:hover { background: var(--gold); color: var(--space-bg); font-weight: bold; }
+        .link-btn { display: inline-block; padding: 12px 30px; color: var(--gold); border: 2px solid var(--gold); text-decoration: none; border-radius: 50px; transition: 0.3s; font-weight: bold; }
+        .link-btn:hover { background: var(--gold); color: #000; }
     </style>
 </head>
 <body>
@@ -73,50 +56,32 @@
     <div id="stars-container"></div>
 
     <div id="welcome-screen">
-        <h1 style="color: var(--gold); font-size: 3em;">نوره عبدالرحمن الناصر</h1>
+        <h1 style="color: var(--gold); font-size: 3.5em;">نوره عبدالرحمن الناصر</h1>
         <p style="font-size: 1.5em; margin-bottom: 30px;">نصنع التأثير.. ونقود المحتوى</p>
-        <button class="welcome-btn" onclick="enterSite()">استكشف عالمي المهني</button>
+        <button onclick="enterSite()" style="padding: 15px 40px; border-radius: 50px; cursor: pointer; background: transparent; color: var(--gold); border: 2px solid var(--gold); font-size: 1.2em;">دخول البورتفوليو</button>
     </div>
 
     <div class="container" id="mainContent">
         <header style="text-align: center; margin-bottom: 50px;">
-            <h1>نوره عبدالرحمن الناصر</h1>
-            <p style="color: var(--gold); font-size: 1.4em;">بين طيات المحتوى.. نصنع قصصاً تترك أثراً لا ينسى</p>
+            <h1 style="color: var(--gold); font-size: 3em;">نوره عبدالرحمن الناصر</h1>
         </header>
 
         <div class="card">
             <h2>الخبرة العملية</h2>
-            <h3>إدارة الإعلام والتواصل الرقمي</h3>
-            <p>ساهمت في إعداد محتوى الحملات الإعلامية الرقمية ورصد الأداء باستخدام أدوات Meltwater.</p>
             <div class="gallery">
-                <img src="./cma-1.jfif">
-                <img src="./cma-2.jfif">
-                <img src="./cma-logo.jfif">
-                <img src="./cma-3.jfif">
+                <img src="./cma-1.jfif"> <img src="./cma-2.jfif"> <img src="./cma-logo.jfif"> <img src="./cma-3.jfif">
             </div>
         </div>
 
-        <div class="card">
-            <h2>المشاريع والمهارات</h2>
-            <img src="./design-council-initiative.jfif" class="img-full">
-            <h3>التمثيل الإعلامي</h3>
-            <div class="gallery">
-                <img src="./council-meeting-session.jfif">
-                <img src="./uni-group-graduation.jfif">
-                <img src="./media-forum-2.jfif">
-            </div>
-        </div>
-
-        <!-- الجزء الذي تم إضافة الرابط فيه بناءً على طلبك -->
         <div class="card">
             <h2>القيادة وإدارة الفعاليات</h2>
-            <p>قدت فريق مشروع ملتقى النقد الإعلامي وإدارة الفرق التنفيذية بكفاءة عالية.</p>
+            <p>مشروع ملتقى النقد الإعلامي وإدارة الفرق التنفيذية.</p>
             <div class="gallery">
-                <img src="./criticism-event-2.jfif">
-                <img src="./criticism-event.jfif">
+                <img src="./criticism-event-2.jfif"> <img src="./criticism-event.jfif">
             </div>
+            <!-- الرابط الذي طلبته نورة -->
             <div style="text-align: center; margin-top: 20px;">
-                <a href="https://www.linkedin.com/posts/norah-alnasser-b2026919b_aetaesaesaeqaexabraepaesaeuaeqaexabraepaesaenaehaesaepaetaey-activity-7269363536244457472-7TxK" class="link-btn" target="_blank" style="background: var(--gold); color: #000; font-weight: bold;">تفاصيل المبادرة على LinkedIn 🔗</a>
+                <a href="https://www.linkedin.com/posts/norah-alnasser-b2026919b_aetaesaesaeqaexabraepaesaeuaeqaexabraepaesaenaehaesaepaetaey-activity-7269363536244457472-7TxK" class="link-btn" target="_blank">شاهد تفاصيل المبادرة على LinkedIn 🔗</a>
             </div>
         </div>
 
@@ -131,30 +96,21 @@
             setTimeout(() => {
                 document.getElementById('welcome-screen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
-            }, 800);
+            }, 1000);
         }
 
-        // إنشاء نظام نجوم كثيف ومتحرك
+        // إنشاء نجوم تلمع بكثافة عالية
         const container = document.getElementById('stars-container');
-        const starCount = 250; // زيادة عدد النجوم
-
-        for (let i = 0; i < starCount; i++) {
+        for (let i = 0; i < 300; i++) {
             const star = document.createElement('div');
             star.className = 'star';
-            
-            // توزيع عشوائي
             star.style.left = Math.random() * 100 + '%';
             star.style.top = Math.random() * 100 + '%';
-            
-            // أحجام متفاوتة لتعزيز العمق
             const size = Math.random() * 3 + 'px';
             star.style.width = size;
             star.style.height = size;
-            
-            // توقيت عشوائي للمعان والحركة
-            star.style.setProperty('--duration', Math.random() * 3 + 1 + 's');
-            star.style.setProperty('--move-duration', Math.random() * 50 + 50 + 's');
-            
+            star.style.setProperty('--duration', Math.random() * 2 + 1 + 's');
+            star.style.animationDelay = Math.random() * 5 + 's';
             container.appendChild(star);
         }
     </script>
