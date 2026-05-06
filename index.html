@@ -1,145 +1,102 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norah Alnasser | نورة الناصر</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Plus+Jakarta+Sans:wght@800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(to bottom, #020107 0%, #050a30 50%, #000c66 100%);
-            background-attachment: fixed;
-            color: #e0e0e0;
-            overflow-x: hidden;
-        }
-        
-        /* نجوم سماء الليل */
-        .star { position: fixed; background: white; border-radius: 50%; opacity: 0.5; animation: twinkle var(--duration) infinite; z-index: 0; }
-        @keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.2); } }
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="35" /> أهلاً بكم في عالمي الرقمي | نوره الناصر
 
-        /* ترحيب اليد */
-        .wave { display: inline-block; animation: wave-animation 2.5s infinite; transform-origin: 70% 70%; }
-        @keyframes wave-animation {
-            0% { transform: rotate( 0.0deg) } 10% { transform: rotate(14.0deg) } 20% { transform: rotate(-8.0deg) }
-            30% { transform: rotate(14.0deg) } 40% { transform: rotate(-4.0deg) } 50% { transform: rotate(10.0deg) }
-            60% { transform: rotate( 0.0deg) } 100% { transform: rotate( 0.0deg) }
-        }
+<p align="center">
+  <img src="profile.jfif" width="180" style="border-radius: 50%; border: 5px solid #0077b5; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
+  <br>
+  <b>صانعة محتوى | أخصائية إعلام رقمي | قائدة مبادرات</b>
+</p>
 
-        /* تأثير الأوراق المفرقة (Glassmorphism) */
-        .glass-folder {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-            transition: 0.5s ease;
-        }
-        .glass-folder:hover { border-color: #0abab5; transform: translateY(-5px); }
-        
-        .eng-font { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .tiffany-text { color: #0abab5; }
-    </style>
-</head>
-<body>
+<p align="center">
+  <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b"><img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  <a href="mailto:Norahabdul15@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail&logoColor=white"></a>
+</p>
 
-    <!-- Stars Logic -->
-    <div id="stars-container"></div>
-    <script>
-        const container = document.getElementById('stars-container');
-        for (let i = 0; i < 150; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            const size = Math.random() * 2.5 + 'px';
-            star.style.width = size; star.style.height = size;
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
-            container.appendChild(star);
-        }
-    </script>
+---
 
-    <!-- Intro: Welcome -->
-    <section class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center p-6">
-        <span class="wave text-7xl mb-8">👋</span>
-        <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter text-white">نورة الناصر</h1>
-        <h2 class="eng-font text-2xl md:text-3xl font-bold tiffany-text tracking-[0.3em] uppercase mb-10">Norah Alnasser</h2>
-        <p class="text-lg md:text-xl max-w-2xl leading-relaxed opacity-80 font-light">
-            خريجة إعلام وصحافة رقمية من جامعة الأميرة نورة. 
-            صانعة محتوى استراتيجي أسعى لترك أثر ملموس في المشهد الرقمي السعودي.
-        </p>
-    </section>
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Sparkles.png" width="30" /> نوره في سطور
+> **"نصنع التأثير.. ونقود المحتوى"** ✨
 
-    <!-- Content Sections -->
-    <main class="relative z-10 max-w-6xl mx-auto px-6 pb-32 space-y-16">
-        
-        <!-- Section: Professional Identity -->
-        <div class="glass-folder p-10 md:p-16">
-            <h3 class="text-3xl font-black mb-8 border-r-4 border-[#0abab5] pr-6">الهوية المهنية</h3>
-            <p class="text-xl leading-relaxed mb-8">
-                حاصلة على بكالوريوس في الإعلام الرقمي بمرتبة الشرف الثانية. 
-                أجمع بين المهارة الصحفية والتحليل الرقمي لتقديم محتوى يواكب تطلعات رؤية المملكة 2030.
-            </p>
-            <div class="flex justify-center">
-                <img src="profile.jfif" class="rounded-2xl w-full max-w-md shadow-2xl border border-white/10" alt="Norah">
-            </div>
-        </div>
+خريجة صحافة وإعلام رقمي من **جامعة الأميرة نورة بنت عبد الرحمن**[cite: 1]. أمتلك مهارات عملية متقدمة في التخطيط الإعلامي وصناعة المحتوى الرقمي، مع خبرة واسعة في القيادة الطلابية وتنظيم المبادرات والفعاليات الرسمية[cite: 1].
 
-        <!-- Section: Experience (CMA) -->
-        <div class="glass-folder p-10 md:p-16">
-            <h3 class="text-3xl font-black mb-8 border-r-4 border-[#0abab5] pr-6">الخبرات العملية</h3>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <h4 class="text-2xl font-bold tiffany-text">هيئة السوق المالية (CMA)</h4>
-                    <p class="opacity-80 leading-relaxed text-lg text-justify">
-                        تدربت في إدارة الإعلام والتواصل الرقمي، حيث ساهمت في رصد التفاعل الإعلامي لعام 2024 باستخدام منصات تحليلية عالمية مثل Meltwater. 
-                        شاركت في تطوير محتوى التقرير السنوي والتمثيل الإعلامي في المحافل الدولية والمحلية.
-                    </p>
-                </div>
-                <div class="grid grid-cols-1 gap-6">
-                    <img src="cma-logo.jfif" class="rounded-2xl shadow-xl w-32 mx-auto" alt="Logo">
-                    <img src="cma-1.jfif" class="rounded-2xl shadow-xl border border-white/5" alt="CMA Work">
-                </div>
-            </div>
-        </div>
+---
 
-        <!-- Section: Creative Works -->
-        <div class="glass-folder p-10 md:p-16">
-            <h3 class="text-3xl font-black mb-8 border-r-4 border-[#0abab5] pr-6">كتابات صحفية</h3>
-            <div class="bg-white/5 p-8 rounded-3xl">
-                <h4 class="text-2xl font-bold mb-4 italic">"رايةٌ لا تُنكس: سارية الدرعية"</h4>
-                <p class="opacity-70 leading-relaxed">
-                    تحليل صحفي بمناسبة يوم العلم السعودي (11 مارس 2026)، يستعرض رمزية العلم في الهوية الوطنية السعودية وتاريخ سارية الدرعية.
-                </p>
-            </div>
-        </div>
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" width="30" /> المحطات المهنية البارزة
 
-        <!-- Section: Highlights Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-folder p-8 text-center">
-                <img src="uni-group-graduation.jfif" class="rounded-xl mb-4 h-48 w-full object-cover" alt="Graduation">
-                <p class="eng-font text-xs font-bold opacity-50 uppercase tracking-widest">Graduation Day</p>
-            </div>
-            <div class="glass-folder p-8 text-center">
-                <img src="media-forum-1.jfif" class="rounded-xl mb-4 h-48 w-full object-cover" alt="Forum">
-                <p class="eng-font text-xs font-bold opacity-50 uppercase tracking-widest">Media Forum</p>
-            </div>
-            <div class="glass-folder p-8 text-center">
-                <img src="criticism-event-1.jfif" class="rounded-xl mb-4 h-48 w-full object-cover" alt="Event">
-                <p class="eng-font text-xs font-bold opacity-50 uppercase tracking-widest">Leadership</p>
-            </div>
-        </div>
+### 🏛️ هيئة السوق المالية (CMA) 
+*التتدريب في إدارة الإعلام والتواصل الرقمي*[cite: 1]
+- ✍️ **تخطيط وصناعة المحتوى:** ساهمت في صياغة محتوى حملة التقرير السنوي 2024 وحملة برنامج تأهيل الخريجين[cite: 1].
+- 📊 **الرصد والتحليل الرقمي:** رصد وتحليل أداء الحسابات باستخدام أدوات احترافية مثل (Meltwater) وإعداد تقارير دورية لقياس أثر الحملات[cite: 1].
+- 🎨 **الهوية البصرية:** تصميم بنرات الموقع الخارجي للهيئة وجدولة المحتوى لضمان الدقة[cite: 1].
 
-    </main>
+<table align="center">
+  <tr>
+    <td><img src="cma-1.jfif" width="250"></td>
+    <td><img src="cma-2.jfif" width="250"></td>
+    <td><img src="cma-logo.jfif" width="180"></td>
+  </tr>
+</table>
 
-    <!-- Footer -->
-    <footer class="relative z-10 py-20 text-center border-t border-white/5">
-        <a href="https://www.linkedin.com/in/norah-alnasser-b2026919b" target="_blank" class="glass-folder px-12 py-5 inline-block hover:bg-white hover:text-[#050a30] font-black text-xl transition-all duration-500 shadow-teal-500/20">
-            LinkedIn التواصل المهني عبر
-        </a>
-        <p class="mt-12 eng-font text-[10px] tracking-[0.5em] opacity-30 uppercase italic">Created by Norah Alnasser © 2026</p>
-    </footer>
+---
 
-</body>
-</html>
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Books.png" width="30" /> نتاجي الفكري والأعمال المنشورة ✍️
+
+- 🇸🇦 **[مقال: رايةٌ لا تُنكس](https://shahdnow.sa/336421/2026)** - يتناول يوم العلم وسارية الدرعية (نُشر في 11 مارس).
+- 🏟️ **[خبر صحفي: من ماديرا إلى المملكة](https://shahdnow.sa/240268/)** - افتتاح معرض "الدون" بالرياض.
+- 🏛️ **[حوار صحفي: لمحة عن مستقبل فنون العمارة](https://shahdnow.sa/240411/)** - رؤية فنية لمستقبل العمران بالمملكة.
+- 🤖 **مقالات صحيفة الجامعة:** مقال "الخوارزميات: سيدة الكواليس في عالم الإعلام"[cite: 1].
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Artist.png" width="30" /> مشاريع وقيادة إعلامية
+
+### 🎤 ملتقى النقد الإعلامي (2024)
+*قائدة الفريق ومصممة الهوية*[cite: 1]
+- **القيادة:** توزيع المهام وضمان التنفيذ بكفاءة واحترافية[cite: 1].
+- **التصميم:** ابتكار الشعار الرسمي، الكتيب الإرشادي، والعرض التقديمي[cite: 1].
+- **التواصل:** تقديم الضيوف الإعلاميين البارزين مثل ياسر الجنيد وعبد الله الحسيني[cite: 1].
+
+<p align="center">
+  <img src="criticism-event-1.jfif" width="45%">
+  <img src="criticism-event-2.jfif" width="45%">
+</p>
+
+### 📱 حملة "صحتك بجوالك"
+إعداد الفيديو الترويجي (تسجيل صوتي ومونتاج) وتطوير خطة النشر والملخص التنفيذي[cite: 1].
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Man%20Dancing.png" width="30" /> التمثيل الإعلامي والفعاليات
+شاركت كممثلة رسمية في **المنتدى السعودي للإعلام**، وتوليت مهام التعريف بالمبادرات، التواصل الجماهيري، وإدارة الأجنحة التعريفية بنجاح[cite: 1].
+
+<table align="center">
+  <tr>
+    <td><img src="media-forum-1.jfif" width="300"></td>
+    <td><img src="media-forum-2.jfif" width="300"></td>
+  </tr>
+</table>
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" width="30" /> المهارات والأدوات
+
+| المهارة | التقييم | الأداة المستخدمة |
+| :--- | :---: | :--- |
+| **التخطيط الإعلامي** | ⭐⭐⭐⭐⭐ | خطص استراتيجية |
+| **تحليل الأداء** | ⭐⭐⭐⭐ | Meltwater & Excel |
+| **صناعة المحتوى** | ⭐⭐⭐⭐⭐ | مونتاج وتسجيل صوتي |
+| **تصميم الجرافيك** | ⭐⭐⭐⭐ | شعارات وإنفوجرافيك |
+
+---
+
+## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Communication/Postbox.png" width="30" /> لنتواصل ونبني التأثير!
+
+- 📧 **البريد الإلكتروني:** Norahabdul15@gmail.com[cite: 1]
+- 🔗 **LinkedIn:** [نوره الناصر](https://www.linkedin.com/in/norah-alnasser-b2026919b)
+- 📞 **الهاتف:** +966500025119[cite: 1]
+
+<p align="center">
+  <img src="uni-group-graduation.jfif" width="100%" style="border-radius: 15px;">
+</p>
+
+---
+<p align="center">تم تطوير هذا الملف بكل ❤️ بواسطة نوره الناصر</p>
